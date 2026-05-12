@@ -588,37 +588,13 @@
                     <input type="date" id="dietDate" onchange="loadDietByDate()">
                 </div>
                 
-                <div class="card" id="dailyIntakeSummary" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; margin-bottom: 25px;">
-                    <div style="font-size: 18px; font-weight: 600; margin-bottom: 15px;">🔥 当日摄入统计</div>
-                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
-                        <div style="background: rgba(255,255,255,0.15); border-radius: 10px; padding: 15px; text-align: center;">
-                            <div style="font-size: 24px; font-weight: 600;">
-                                <span id="dietTotalCalories">0</span>
-                                <span style="font-size: 14px; font-weight: 400;"> kcal</span>
-                            </div>
-                            <div style="font-size: 12px; opacity: 0.8; margin-top: 5px;">总热量</div>
-                        </div>
-                        <div style="background: rgba(255,255,255,0.15); border-radius: 10px; padding: 15px; text-align: center;">
-                            <div style="font-size: 24px; font-weight: 600;">
-                                <span id="dietTotalCarbs">0</span>
-                                <span style="font-size: 14px; font-weight: 400;"> g</span>
-                            </div>
-                            <div style="font-size: 12px; opacity: 0.8; margin-top: 5px;">碳水化合物</div>
-                        </div>
-                        <div style="background: rgba(255,255,255,0.15); border-radius: 10px; padding: 15px; text-align: center;">
-                            <div style="font-size: 24px; font-weight: 600;">
-                                <span id="dietTotalProtein">0</span>
-                                <span style="font-size: 14px; font-weight: 400;"> g</span>
-                            </div>
-                            <div style="font-size: 12px; opacity: 0.8; margin-top: 5px;">蛋白质</div>
-                        </div>
-                        <div style="background: rgba(255,255,255,0.15); border-radius: 10px; padding: 15px; text-align: center;">
-                            <div style="font-size: 24px; font-weight: 600;">
-                                <span id="dietTotalFat">0</span>
-                                <span style="font-size: 14px; font-weight: 400;"> g</span>
-                            </div>
-                            <div style="font-size: 12px; opacity: 0.8; margin-top: 5px;">脂肪</div>
-                        </div>
+                <div class="card" id="dailyIntakeSummary" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; margin-bottom: 15px; padding: 10px;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; font-size: 14px;">
+                        <span style="font-weight: 600;">🔥 当日摄入</span>
+                        <span>热量: <strong id="dietTotalCalories">0</strong> kcal</span>
+                        <span>碳水: <strong id="dietTotalCarbs">0</strong> g</span>
+                        <span>蛋白: <strong id="dietTotalProtein">0</strong> g</span>
+                        <span>脂肪: <strong id="dietTotalFat">0</strong> g</span>
                     </div>
                 </div>
                 
