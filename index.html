@@ -152,6 +152,145 @@
         }
         .tab:hover { background: #e9ecef; color: #495057; }
         .tab.active { color: #007bff; background: white; }
+        
+        .float-btn {
+            position: fixed;
+            right: 20px;
+            bottom: 40px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.5);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .float-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(102, 126, 234, 0.6);
+        }
+        .float-btn:active {
+            transform: scale(0.95);
+        }
+        
+        .knowledge-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .knowledge-modal.active {
+            display: flex;
+        }
+        .knowledge-modal-content {
+            background: white;
+            border-radius: 16px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        .knowledge-modal-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 24px;
+            border-radius: 16px 16px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+        }
+        .knowledge-modal-header h2 {
+            margin: 0;
+            font-size: 20px;
+        }
+        .knowledge-modal-close {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        .knowledge-modal-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .knowledge-modal-body {
+            padding: 24px;
+        }
+        .knowledge-section {
+            margin-bottom: 24px;
+        }
+        .knowledge-section:last-child {
+            margin-bottom: 0;
+        }
+        .knowledge-section h3 {
+            color: #667eea;
+            font-size: 16px;
+            margin: 0 0 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .knowledge-section p {
+            color: #6c757d;
+            font-size: 14px;
+            line-height: 1.8;
+            margin: 0 0 12px 0;
+        }
+        .knowledge-section ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .knowledge-section li {
+            color: #495057;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+        .knowledge-section li:last-child {
+            margin-bottom: 0;
+        }
+        .exercise-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        .exercise-table th, .exercise-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .exercise-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #495057;
+        }
+        .exercise-table tr:last-child td {
+            border-bottom: none;
+        }
         .tab.active::after {
             content: '';
             position: absolute;
@@ -592,13 +731,44 @@
                             <span class="exercise-value">系数: 1.725</span>
                         </label>
                     </div>
-                    <p style="font-size: 12px; color: #6c757d; margin-top: 8px;">
-                        <strong>运动系数说明：</strong><br>
-                        - 久坐型(1.2)：几乎不运动，办公室工作<br>
-                        - 轻度运动(1.375)：每周1-3次轻度运动<br>
-                        - 中度运动(1.55)：每周3-5次中等强度运动<br>
-                        - 高度运动(1.725)：每周6-7次高强度运动
-                    </p>
+                    <div style="margin-top: 12px;">
+                        <p style="font-size: 13px; color: #495057; font-weight: 600; margin-bottom: 8px;">📋 运动系数详细说明</p>
+                        <table style="width: 100%; font-size: 12px; border-collapse: collapse;">
+                            <tr style="background: #f8f9fa;">
+                                <th style="padding: 8px; text-align: left; border-bottom: 1px solid #e9ecef;">系数</th>
+                                <th style="padding: 8px; text-align: left; border-bottom: 1px solid #e9ecef;">每周次数</th>
+                                <th style="padding: 8px; text-align: left; border-bottom: 1px solid #e9ecef;">每次时长</th>
+                                <th style="padding: 8px; text-align: left; border-bottom: 1px solid #e9ecef;">心率区间</th>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border-bottom: 1px solid #e9ecef;">1.2 久坐型</td>
+                                <td style="padding: 8px; border-bottom: 1px solid #e9ecef;">0-1次</td>
+                                <td style="padding: 8px; border-bottom: 1px solid #e9ecef;">几乎不运动</td>
+                                <td style="padding: 8px; border-bottom: 1px solid #e9ecef;">-</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border-bottom: 1px solid #e9ecef;">1.375 轻度</td>
+                                <td style="padding: 8px; border-bottom: 1px solid #e9ecef;">1-3次</td>
+                                <td style="padding: 8px; border-bottom: 1px solid #e9ecef;">约30分钟</td>
+                                <td style="padding: 8px; border-bottom: 1px solid #e9ecef;">60-70%最大心率</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border-bottom: 1px solid #e9ecef;">1.55 中度</td>
+                                <td style="padding: 8px; border-bottom: 1px solid #e9ecef;">3-5次</td>
+                                <td style="padding: 8px; border-bottom: 1px solid #e9ecef;">30-45分钟</td>
+                                <td style="padding: 8px; border-bottom: 1px solid #e9ecef;">70-80%最大心率</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px;">1.725 高度</td>
+                                <td style="padding: 8px;">5-7次</td>
+                                <td style="padding: 8px;">45-60分钟</td>
+                                <td style="padding: 8px;">75-85%最大心率</td>
+                            </tr>
+                        </table>
+                        <p style="font-size: 11px; color: #6c757d; margin-top: 8px;">
+                            💡 最大心率 = 220 - 年龄 | 选择最符合您日常活动水平的系数
+                        </p>
+                    </div>
                 </div>
                 
                 <div class="form-group">
@@ -2051,6 +2221,67 @@
                 alert('食物已删除！');
             }
         }
+        
+        function openKnowledgeModal() {
+            document.getElementById('knowledgeModal').classList.add('active');
+        }
+        
+        function closeKnowledgeModal() {
+            document.getElementById('knowledgeModal').classList.remove('active');
+        }
+        
+        document.addEventListener('click', function(e) {
+            const modal = document.getElementById('knowledgeModal');
+            if (modal.classList.contains('active') && e.target === modal) {
+                closeKnowledgeModal();
+            }
+        });
     </script>
+    
+    <button class="float-btn" onclick="openKnowledgeModal()">📚</button>
+    
+    <div id="knowledgeModal" class="knowledge-modal">
+        <div class="knowledge-modal-content">
+            <div class="knowledge-modal-header">
+                <h2>📚 健康减脂新手知识</h2>
+                <button class="knowledge-modal-close" onclick="closeKnowledgeModal()">×</button>
+            </div>
+            <div class="knowledge-modal-body">
+                <div class="knowledge-section">
+                    <h3>🥗 什么是热量缺口？</h3>
+                    <p>热量缺口是指你每天消耗的热量大于摄入的热量。身体为了弥补能量不足，会动用储存的脂肪，从而达到减重的目的。</p>
+                    <p>通常建议每日热量缺口在 300-500 kcal，这样每周可以健康减重 0.5-1 公斤。</p>
+                </div>
+                
+                <div class="knowledge-section">
+                    <h3>💪 有氧运动 vs 无氧运动</h3>
+                    <ul>
+                        <li><strong>有氧运动（减脂为主）：</strong>跑步、游泳、骑行、快走等，心率保持在最大心率的 60-80%，持续时间较长。</li>
+                        <li><strong>无氧运动（塑形增肌）：</strong>力量训练、HIIT等，心率可达最大心率的 80%以上，强度高但时间短。</li>
+                    </ul>
+                </div>
+                
+                <div class="knowledge-section">
+                    <h3>🥩 三大营养素比例</h3>
+                    <ul>
+                        <li><strong>蛋白质：</strong>占总热量的 20-30%，每公斤体重建议摄入 1.2-1.6g</li>
+                        <li><strong>碳水化合物：</strong>占总热量的 40-50%，优选复合碳水</li>
+                        <li><strong>脂肪：</strong>占总热量的 20-30%，优选不饱和脂肪</li>
+                    </ul>
+                </div>
+                
+                <div class="knowledge-section">
+                    <h3>💡 减脂小贴士</h3>
+                    <ul>
+                        <li>每天喝 1.5-2 升水，饭前喝一杯有助于增加饱腹感</li>
+                        <li>保证 7-8 小时充足睡眠，睡眠不足会影响激素分泌</li>
+                        <li>记录饮食有助于了解自己的摄入情况</li>
+                        <li>不要过度节食，长期过低热量摄入会降低代谢</li>
+                        <li>结合运动效果更佳，有氧+力量结合是黄金组合</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
