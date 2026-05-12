@@ -11,6 +11,14 @@
         "pieceWeight": null,
         "gi": 73
       },
+      "白糙3:2混合米": {
+        "calories": 347,
+        "carbs": 76.3,
+        "protein": 7.8,
+        "fat": 1.6,
+        "pieceWeight": null,
+        "gi": 64
+      },
       "粳米": {
         "calories": 346,
         "carbs": 77.2,
@@ -530,6 +538,14 @@
       "红豆": {
         "calories": 309,
         "carbs": 55.7,
+        "protein": 20.2,
+        "fat": 0.6,
+        "pieceWeight": null,
+        "gi": 25
+      },
+      "赤小豆": {
+        "calories": 324,
+        "carbs": 63.4,
         "protein": 20.2,
         "fat": 0.6,
         "pieceWeight": null,
