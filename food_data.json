@@ -1192,6 +1192,14 @@
         "fat": 0.4,
         "pieceWeight": 20,
         "gi": 25
+      },
+      "豆芽": {
+        "calories": 25,
+        "carbs": 4.5,
+        "protein": 2.5,
+        "fat": 0.2,
+        "pieceWeight": 100,
+        "gi": 25
       }
     },
     "水果类": {
