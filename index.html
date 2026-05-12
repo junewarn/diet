@@ -1110,10 +1110,11 @@
             list.innerHTML = foods.map((food, index) => {
                 const unit = food.unit === 'piece' ? '个' : 'g';
                 const displayQty = food.unit === 'piece' ? food.quantity : food.weight;
+                const weightDisplay = food.unit === 'piece' && food.weight ? `(${displayQty}个 = ${food.weight}g)` : `(${displayQty}${unit})`;
                 return `
                 <div class="food-item">
                     <div class="food-info">
-                        <div class="food-name">${food.name} (${displayQty}${unit})</div>
+                        <div class="food-name">${food.name} ${weightDisplay}</div>
                         <div class="food-macro">碳水: ${food.carbs}g | 蛋白质: ${food.protein}g | 脂肪: ${food.fat}g</div>
                     </div>
                     <div class="food-calories">${food.calories} kcal</div>
@@ -1142,7 +1143,9 @@
             document.getElementById('editMeal').value = meal;
             document.getElementById('foodName').value = '';
             document.getElementById('foodWeight').value = '100';
+            document.getElementById('foodUnit').value = 'g';
             document.getElementById('foodSearchResults').style.display = 'none';
+            updateFoodUnitOptions(null);
             updateCalculatedNutrition();
             document.getElementById('foodModal').classList.add('active');
         }
@@ -1159,6 +1162,16 @@
             document.getElementById('foodWeight').value = food.unit === 'piece' ? (food.quantity || 1) : (food.weight || 100);
             document.getElementById('foodUnit').value = food.unit || 'g';
             document.getElementById('foodSearchResults').style.display = 'none';
+            
+            const foodInfo = getFoodInfo(food.name);
+            if (foodInfo && foodInfo.pieceWeight !== null && foodInfo.pieceWeight !== undefined) {
+                document.getElementById('foodUnit').innerHTML = '<option value="piece">个</option><option value="g">克 (g)</option>';
+                document.getElementById('foodUnit').disabled = false;
+            } else {
+                document.getElementById('foodUnit').innerHTML = '<option value="g">克 (g)</option>';
+                document.getElementById('foodUnit').disabled = true;
+            }
+            
             updateCalculatedNutrition();
             document.getElementById('foodModal').classList.add('active');
         }
@@ -1191,7 +1204,26 @@
         function selectFood(name) {
             document.getElementById('foodName').value = name;
             document.getElementById('foodSearchResults').style.display = 'none';
+            const foodInfo = getFoodInfo(name);
+            updateFoodUnitOptions(foodInfo);
             updateCalculatedNutrition();
+        }
+        
+        function updateFoodUnitOptions(foodInfo) {
+            const unitSelect = document.getElementById('foodUnit');
+            const weightInput = document.getElementById('foodWeight');
+            
+            if (!foodInfo || foodInfo.pieceWeight === null || foodInfo.pieceWeight === undefined) {
+                unitSelect.innerHTML = '<option value="g">克 (g)</option>';
+                unitSelect.value = 'g';
+                unitSelect.disabled = true;
+                weightInput.value = '100';
+            } else {
+                unitSelect.innerHTML = '<option value="piece">个</option><option value="g">克 (g)</option>';
+                unitSelect.value = 'piece';
+                unitSelect.disabled = false;
+                weightInput.value = '1';
+            }
         }
         
         function updateCalculatedNutrition() {
@@ -1682,13 +1714,27 @@
             document.getElementById('weightLossGoal').value = personal.weightLossGoal || '';
         }
         
+        function checkPersonalInfo() {
+            const personal = getPersonalInfo();
+            if (!personal.gender || !personal.birthDate || !personal.height || !personal.weight) {
+                return false;
+            }
+            return true;
+        }
+
         document.querySelectorAll('.tab').forEach(tab => {
             tab.addEventListener('click', function() {
+                const tabId = this.dataset.tab;
+                
+                if (tabId !== 'personal' && !checkPersonalInfo()) {
+                    alert('请先填写并保存个人信息，否则后续功能无法使用！');
+                    return;
+                }
+                
                 document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
                 document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
                 
                 this.classList.add('active');
-                const tabId = this.dataset.tab;
                 document.getElementById(tabId).classList.add('active');
                 
                 if (tabId === 'diet') {

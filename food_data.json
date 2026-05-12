@@ -3945,6 +3945,14 @@
         "pieceWeight": 150,
         "gi": 70
       },
+      "醪糟": {
+        "calories": 105,
+        "carbs": 22.4,
+        "protein": 1.6,
+        "fat": 0.3,
+        "pieceWeight": 150,
+        "gi": 75
+      },
       "清酒": {
         "calories": 103,
         "carbs": 4.5,
