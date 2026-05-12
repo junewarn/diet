@@ -588,6 +588,40 @@
                     <input type="date" id="dietDate" onchange="loadDietByDate()">
                 </div>
                 
+                <div class="card" id="dailyIntakeSummary" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; margin-bottom: 25px;">
+                    <div style="font-size: 18px; font-weight: 600; margin-bottom: 15px;">🔥 当日摄入统计</div>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+                        <div style="background: rgba(255,255,255,0.15); border-radius: 10px; padding: 15px; text-align: center;">
+                            <div style="font-size: 24px; font-weight: 600;">
+                                <span id="dietTotalCalories">0</span>
+                                <span style="font-size: 14px; font-weight: 400;"> kcal</span>
+                            </div>
+                            <div style="font-size: 12px; opacity: 0.8; margin-top: 5px;">总热量</div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.15); border-radius: 10px; padding: 15px; text-align: center;">
+                            <div style="font-size: 24px; font-weight: 600;">
+                                <span id="dietTotalCarbs">0</span>
+                                <span style="font-size: 14px; font-weight: 400;"> g</span>
+                            </div>
+                            <div style="font-size: 12px; opacity: 0.8; margin-top: 5px;">碳水化合物</div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.15); border-radius: 10px; padding: 15px; text-align: center;">
+                            <div style="font-size: 24px; font-weight: 600;">
+                                <span id="dietTotalProtein">0</span>
+                                <span style="font-size: 14px; font-weight: 400;"> g</span>
+                            </div>
+                            <div style="font-size: 12px; opacity: 0.8; margin-top: 5px;">蛋白质</div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.15); border-radius: 10px; padding: 15px; text-align: center;">
+                            <div style="font-size: 24px; font-weight: 600;">
+                                <span id="dietTotalFat">0</span>
+                                <span style="font-size: 14px; font-weight: 400;"> g</span>
+                            </div>
+                            <div style="font-size: 12px; opacity: 0.8; margin-top: 5px;">脂肪</div>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="meal-section">
                     <div class="meal-title">🌅 早餐</div>
                     <div class="food-list" id="breakfastList">
@@ -1135,6 +1169,16 @@
             renderFoodList('lunch', diet.lunch);
             renderFoodList('dinner', diet.dinner);
             renderFoodList('snack', diet.snack);
+            
+            updateDailyIntakeSummary(diet);
+        }
+        
+        function updateDailyIntakeSummary(diet) {
+            const intake = calculateDailyIntake(diet);
+            document.getElementById('dietTotalCalories').textContent = intake.calories;
+            document.getElementById('dietTotalCarbs').textContent = intake.carbs;
+            document.getElementById('dietTotalProtein').textContent = intake.protein;
+            document.getElementById('dietTotalFat').textContent = intake.fat;
         }
         
         function addFood(meal) {
@@ -1517,16 +1561,16 @@
             const fatTarget = Math.round(targetCalories * 0.25 / 9);
             const carbsTarget = Math.round((targetCalories - (proteinTarget * 4) - (fatTarget * 9)) / 4);
             
-            document.getElementById('suggestCarbs').textContent = carbsTarget + ' g';
-            document.getElementById('suggestProtein').textContent = proteinTarget + ' g';
-            document.getElementById('suggestFat').textContent = fatTarget + ' g';
-            document.getElementById('suggestCalories').textContent = targetCalories + ' kcal';
+            document.getElementById('suggestCarbs').textContent = `${intake.carbs}/${carbsTarget} g`;
+            document.getElementById('suggestProtein').textContent = `${intake.protein}/${proteinTarget} g`;
+            document.getElementById('suggestFat').textContent = `${intake.fat}/${fatTarget} g`;
+            document.getElementById('suggestCalories').textContent = `${intake.calories}/${targetCalories} kcal`;
             
-            generateMealRecommendations(intake, { carbs: carbsTarget, protein: proteinTarget, fat: fatTarget }, remaining);
+            generateMealRecommendations(intake, { carbs: carbsTarget, protein: proteinTarget, fat: fatTarget }, remaining, todayDiet);
             generateGeneralRecommendations(intake, { carbs: carbsTarget, protein: proteinTarget, fat: fatTarget });
         }
         
-        function generateMealRecommendations(current, target, remainingCalories) {
+        function generateMealRecommendations(current, target, remainingCalories, todayDiet) {
             const remainingCarbs = target.carbs - current.carbs;
             const remainingProtein = target.protein - current.protein;
             const remainingFat = target.fat - current.fat;
@@ -1534,23 +1578,34 @@
             const now = new Date();
             const hour = now.getHours();
             
-            let remainingMeals = [];
+            let allMeals = [];
             if (hour < 10) {
-                remainingMeals = ['早餐', '午餐', '晚餐', '加餐'];
+                allMeals = ['breakfast', 'lunch', 'dinner', 'snack'];
             } else if (hour < 14) {
-                remainingMeals = ['午餐', '晚餐', '加餐'];
+                allMeals = ['lunch', 'dinner', 'snack'];
             } else if (hour < 18) {
-                remainingMeals = ['晚餐', '加餐'];
+                allMeals = ['dinner', 'snack'];
             } else {
-                remainingMeals = ['加餐'];
+                allMeals = ['snack'];
+            }
+            
+            const mealNames = { 'breakfast': '早餐', 'lunch': '午餐', 'dinner': '晚餐', 'snack': '加餐' };
+            const mealEmojis = { 'breakfast': '🌅', 'lunch': '☀️', 'dinner': '🌙', 'snack': '🍪' };
+            
+            const remainingMeals = allMeals.filter(meal => {
+                const foods = todayDiet[meal] || [];
+                return foods.length === 0;
+            });
+            
+            if (remainingMeals.length === 0) {
+                document.getElementById('mealRecommendations').innerHTML = '<div style="text-align: center; color: #6c757d; padding: 20px;">🎉 今日所有餐次已完成！</div>';
+                return;
             }
             
             const caloriesPerMeal = Math.round(remainingCalories / Math.max(remainingMeals.length, 1));
             const carbsPerMeal = Math.round(remainingCarbs / Math.max(remainingMeals.length, 1));
             const proteinPerMeal = Math.round(remainingProtein / Math.max(remainingMeals.length, 1));
             const fatPerMeal = Math.round(remainingFat / Math.max(remainingMeals.length, 1));
-            
-            const mealEmojis = { '早餐': '🌅', '午餐': '☀️', '晚餐': '🌙', '加餐': '🍪' };
             
             let html = '';
             
@@ -1565,7 +1620,7 @@
                 
                 html += `
                     <div class="meal-suggestion">
-                        <div class="meal-suggestion-title">${mealEmojis[meal]} ${meal}</div>
+                        <div class="meal-suggestion-title">${mealEmojis[meal]} ${mealNames[meal]}</div>
                         <div class="meal-suggestion-content">
                             <strong>目标：</strong>${mealCalories} kcal | 碳水 ${mealCarbs}g | 蛋白质 ${mealProtein}g | 脂肪 ${mealFat}g<br>
                             <strong>推荐：</strong>${foodSuggestions}
@@ -1757,6 +1812,14 @@
             loadDietByDate();
             loadHistory();
             updateSuggestion();
+            
+            const personal = getPersonalInfo();
+            if (personal.gender && personal.birthDate && personal.height && personal.weight) {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                document.querySelector('.tab[data-tab="diet"]').classList.add('active');
+                document.getElementById('diet').classList.add('active');
+            }
         });
         
         function searchFoodManager() {
