@@ -22,54 +22,117 @@
             overflow: hidden;
         }
         .header {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 25px 30px;
+            padding: 22px 30px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
         }
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
+            z-index: 1;
         }
-        .header h1 { 
-            font-size: 28px; 
-            font-weight: 600; 
-            background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.8) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .header-logo {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .header-title h1 { 
+            font-size: 26px; 
+            font-weight: 700; 
+            margin: 0;
+            letter-spacing: 1px;
+        }
+        .header-subtitle {
+            font-size: 12px;
+            opacity: 0.85;
+            margin-top: 2px;
         }
         .header-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: flex-end;
+        }
+        .header-actions-row {
             display: flex;
             gap: 10px;
         }
         .header-btn {
-            padding: 8px 16px;
+            padding: 9px 18px;
             border: none;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 500;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
-            background: rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
             color: white;
-            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        .header-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        .header-btn:hover::before {
+            left: 100%;
         }
         .header-btn:hover {
-            background: rgba(255,255,255,0.3);
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+        }
+        .header-btn:active {
+            transform: translateY(0);
         }
         .header-btn.import-btn {
-            background: rgba(40, 167, 69, 0.8);
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
         }
         .header-btn.import-btn:hover {
-            background: rgba(40, 167, 69, 1);
+            background: linear-gradient(135deg, #218838 0%, #17a673 100%);
         }
         .header-btn.export-btn {
-            background: rgba(255, 193, 7, 0.8);
+            background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
+            color: #212529;
         }
         .header-btn.export-btn:hover {
-            background: rgba(255, 193, 7, 1);
+            background: linear-gradient(135deg, #e0a800 0%, #e67700 100%);
+        }
+        .header-btn.qq-btn {
+            background: linear-gradient(135deg, #17a2b8 0%, #007bff 100%);
+        }
+        .header-btn.qq-btn:hover {
+            background: linear-gradient(135deg, #138496 0%, #0069d9 100%);
         }
         .tabs {
             display: flex;
@@ -447,14 +510,26 @@
     <div class="container">
         <div class="header">
             <div class="header-content">
-                <h1><svg width="36" height="36" viewBox="0 0 100 100" style="vertical-align: middle; margin-right: 10px;"><defs><linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#667eea;stop-opacity:1"/><stop offset="100%" style="stop-color:#764ba2;stop-opacity:1"/></linearGradient></defs><circle cx="50" cy="50" r="45" fill="url(#g2)"/><text x="50" y="62" font-size="45" text-anchor="middle" fill="white">🥗</text></svg>科学减脂助手</h1>
+                <div class="header-left">
+                    <div class="header-logo">
+                        <svg viewBox="0 0 100 100"><defs><linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#fff;stop-opacity:1"/><stop offset="100%" style="stop-color:rgba(255,255,255,0.8);stop-opacity:1"/></linearGradient></defs><circle cx="50" cy="50" r="45" fill="url(#g2)"/><text x="50" y="62" font-size="45" text-anchor="middle" fill="#667eea">🥗</text></svg>
+                    </div>
+                    <div class="header-title">
+                        <h1>科学减脂助手</h1>
+                        <div class="header-subtitle">科学规划 · 健康减重</div>
+                    </div>
+                </div>
                 <div class="header-actions">
-                    <button class="header-btn import-btn" onclick="triggerImport()">📥 导入数据</button>
-                    <button class="header-btn export-btn" onclick="exportData()">📤 导出数据</button>
+                    <div class="header-actions-row">
+                        <button class="header-btn import-btn" onclick="triggerImport()">📥 导入数据</button>
+                        <button class="header-btn export-btn" onclick="exportData()">📤 导出数据</button>
+                    </div>
+                    <div class="header-actions-row">
+                        <button class="header-btn qq-btn" onclick="window.open('https://qun.qq.com/universal-share/share?ac=1&authKey=iSY4k5HEj24v9p8uH7T3DOiHOYT4JsIGOWanUKWVHJqZsERtQXCJQOjTZYNBi6t5&busi_data=eyJncm91cENvZGUiOiI0ODU3NTQ0MTYiLCJ0b2tlbiI6InYxTitFOHNLRXUxdTFsZG9SOURRWWlNZ3ZDZGtZVDFiNnZlU0wzd0djb0RkaTBaZDBiTHYvVjJUMXpqM0tMUkkiLCJ1aW4iOiIxMjE5Nzk1Mjg0In0%3D&data=7tPko8lHLzk5LGR2hOdvJds9BTqg5GzIlvrCCCzBcY77zqBah951c1MQfchRqxtqY6Wd74vafUb5tRSTXvuG1A&svctype=4&tempid=h5_group_info', '_blank')">👥 加入QQ群</button>
+                    </div>
                     <input type="file" id="importFile" style="display: none;" accept=".json" onchange="handleFileImport(event)">
                 </div>
             </div>
-            <p style="margin-top: 8px; opacity: 0.9; text-align: center;">科学规划，健康减重</p>
         </div>
         
         <div class="tabs">
