@@ -298,6 +298,14 @@
             text-overflow: ellipsis;
             white-space: nowrap;
         }
+        .day-gap {
+            font-size: 9px;
+            margin-top: 1px;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
         .warning-box {
             background: #fff3cd;
             border: 1px solid #ffeeba;
@@ -1323,6 +1331,13 @@
         
         function loadHistory() {
             updateHistoryPeriodTitle();
+            if (currentHistoryView === 'month') {
+                document.getElementById('monthlyStats').style.display = 'block';
+                document.getElementById('yearlyStats').style.display = 'none';
+            } else {
+                document.getElementById('monthlyStats').style.display = 'none';
+                document.getElementById('yearlyStats').style.display = 'block';
+            }
             renderHistoryGrid();
             calculatePeriodStats();
         }
@@ -1394,12 +1409,18 @@
             const data = initData();
             
             if (currentHistoryView === 'month') {
+                const personal = getPersonalInfo();
+                const bmr = calculateBMR(personal);
+                const tdee = calculateTDEE(bmr, personal.exercise);
+                const targetCalories = calculateTargetCalories(tdee, personal.weightLossGoal);
+                
                 grid.innerHTML = dates.map(dateStr => {
                     const date = new Date(dateStr);
                     const isCurrentMonth = date.getMonth() === currentHistoryMonth;
                     const dayDiet = data.diet[dateStr];
                     const hasData = dayDiet && Object.values(dayDiet).some(meal => meal.length > 0);
                     const dayCalories = hasData ? calculateDailyIntake(dayDiet).calories : 0;
+                    const calorieGap = hasData ? Math.abs(targetCalories - dayCalories) : 0;
                     const isToday = dateStr === getTodayString();
                     const isSelected = dateStr === selectedHistoryDate;
                     
@@ -1407,7 +1428,8 @@
                         <div class="history-day ${!isCurrentMonth ? 'other-month' : ''} ${hasData ? 'has-data' : ''} ${isSelected ? 'active' : ''}" 
                              data-date="${dateStr}" onclick="selectHistoryDate('${dateStr}')">
                             <div class="day-number">${date.getDate()}</div>
-                            <div class="day-calories">${dayCalories > 0 ? dayCalories + ' kcal' : ''}</div>
+                            <div class="day-calories">${dayCalories > 0 ? '摄入：' + dayCalories + 'kcal' : ''}</div>
+                            <div class="day-gap">${hasData ? '<span style="color: red;">缺口：' + calorieGap + 'kcal</span>' : ''}</div>
                         </div>
                     `;
                 }).join('');
