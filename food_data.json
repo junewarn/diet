@@ -136,7 +136,7 @@
         "carbs": 47,
         "protein": 7,
         "fat": 1.1,
-        "pieceWeight": null,
+        "pieceWeight": 100,
         "gi": 88
       },
       "花卷": {
@@ -144,7 +144,7 @@
         "carbs": 45.6,
         "protein": 6.4,
         "fat": 1,
-        "pieceWeight": null,
+        "pieceWeight": 100,
         "gi": 88
       },
       "包子": {
@@ -152,7 +152,7 @@
         "carbs": 37.2,
         "protein": 7.2,
         "fat": 5.8,
-        "pieceWeight": 80,
+        "pieceWeight": 120,
         "gi": 79
       },
       "饺子": {
@@ -160,7 +160,7 @@
         "carbs": 30.5,
         "protein": 9.5,
         "fat": 8.9,
-        "pieceWeight": 25,
+        "pieceWeight": 20,
         "gi": 78
       },
       "馄饨": {
@@ -168,7 +168,7 @@
         "carbs": 28.3,
         "protein": 7.5,
         "fat": 6.5,
-        "pieceWeight": 20,
+        "pieceWeight": 15,
         "gi": 73
       },
       "烙饼": {
@@ -176,7 +176,7 @@
         "carbs": 52.9,
         "protein": 7.5,
         "fat": 2.3,
-        "pieceWeight": null,
+        "pieceWeight": 150,
         "gi": 79
       },
       "油条": {
@@ -184,7 +184,7 @@
         "carbs": 51,
         "protein": 6.9,
         "fat": 17.6,
-        "pieceWeight": null,
+        "pieceWeight": 50,
         "gi": 75
       },
       "烧饼": {
@@ -192,7 +192,7 @@
         "carbs": 62.7,
         "protein": 8,
         "fat": 2.1,
-        "pieceWeight": null,
+        "pieceWeight": 80,
         "gi": 79
       },
       "煎饼": {
@@ -200,7 +200,7 @@
         "carbs": 51.8,
         "protein": 7.2,
         "fat": 9.9,
-        "pieceWeight": null,
+        "pieceWeight": 120,
         "gi": 75
       },
       "手抓饼": {
@@ -208,7 +208,7 @@
         "carbs": 45.8,
         "protein": 7.3,
         "fat": 18.1,
-        "pieceWeight": null,
+        "pieceWeight": 100,
         "gi": 72
       },
       "玉米": {
@@ -298,7 +298,7 @@
         "carbs": 17.8,
         "protein": 2.6,
         "fat": 0.2,
-        "pieceWeight": 150,
+        "pieceWeight": null,
         "gi": 77
       },
       "土豆": {
@@ -306,7 +306,7 @@
         "carbs": 17.8,
         "protein": 2.6,
         "fat": 0.2,
-        "pieceWeight": 150,
+        "pieceWeight": null,
         "gi": 77
       },
       "红薯": {
@@ -314,7 +314,7 @@
         "carbs": 15.3,
         "protein": 0.7,
         "fat": 0.2,
-        "pieceWeight": 150,
+        "pieceWeight": null,
         "gi": 77
       },
       "紫薯": {
@@ -322,7 +322,7 @@
         "carbs": 16.5,
         "protein": 1.4,
         "fat": 0.2,
-        "pieceWeight": 150,
+        "pieceWeight": null,
         "gi": 77
       },
       "山药": {
@@ -330,7 +330,7 @@
         "carbs": 13.4,
         "protein": 1.5,
         "fat": 0.1,
-        "pieceWeight": 150,
+        "pieceWeight": null,
         "gi": 51
       },
       "芋头": {
@@ -338,7 +338,7 @@
         "carbs": 18.6,
         "protein": 1.3,
         "fat": 0.2,
-        "pieceWeight": 150,
+        "pieceWeight": null,
         "gi": 47
       },
       "莲藕": {
@@ -346,7 +346,7 @@
         "carbs": 10.9,
         "protein": 1.2,
         "fat": 0.1,
-        "pieceWeight": 150,
+        "pieceWeight": null,
         "gi": 30
       },
       "荸荠": {
@@ -354,7 +354,7 @@
         "carbs": 14,
         "protein": 1.2,
         "fat": 0.1,
-        "pieceWeight": 30,
+        "pieceWeight": null,
         "gi": 72
       },
       "菱角": {
@@ -362,7 +362,7 @@
         "carbs": 23.8,
         "protein": 2.6,
         "fat": 0.1,
-        "pieceWeight": 20,
+        "pieceWeight": null,
         "gi": 75
       },
       "粉条": {
@@ -396,7 +396,7 @@
         "carbs": 4.2,
         "protein": 8.1,
         "fat": 3.7,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 27
       },
       "北豆腐": {
@@ -404,7 +404,7 @@
         "carbs": 3.5,
         "protein": 9.2,
         "fat": 4.8,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 27
       },
       "南豆腐": {
@@ -412,7 +412,7 @@
         "carbs": 2.6,
         "protein": 5.7,
         "fat": 2.7,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 27
       },
       "内酯豆腐": {
@@ -420,7 +420,7 @@
         "carbs": 2.2,
         "protein": 4.6,
         "fat": 1.9,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 27
       },
       "豆腐干": {
@@ -428,7 +428,7 @@
         "carbs": 5.3,
         "protein": 15.6,
         "fat": 6.4,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 25
       },
       "香干": {
@@ -436,7 +436,7 @@
         "carbs": 5.1,
         "protein": 15.8,
         "fat": 7.1,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 25
       },
       "素鸡": {
@@ -444,7 +444,7 @@
         "carbs": 4.8,
         "protein": 16.5,
         "fat": 8.2,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 25
       },
       "豆腐皮": {
@@ -452,7 +452,7 @@
         "carbs": 10.8,
         "protein": 26.8,
         "fat": 16.2,
-        "pieceWeight": 30,
+        "pieceWeight": null,
         "gi": 25
       },
       "腐竹": {
@@ -460,7 +460,7 @@
         "carbs": 22.3,
         "protein": 44.6,
         "fat": 21.7,
-        "pieceWeight": 30,
+        "pieceWeight": null,
         "gi": 25
       },
       "油豆腐": {
@@ -468,7 +468,7 @@
         "carbs": 7.5,
         "protein": 14.6,
         "fat": 16.8,
-        "pieceWeight": 30,
+        "pieceWeight": null,
         "gi": 27
       },
       "豆腐脑": {
@@ -476,7 +476,7 @@
         "carbs": 1.2,
         "protein": 1.5,
         "fat": 0.4,
-        "pieceWeight": 200,
+        "pieceWeight": null,
         "gi": 25
       },
       "豆浆": {
@@ -484,7 +484,7 @@
         "carbs": 1.2,
         "protein": 2.9,
         "fat": 1.2,
-        "pieceWeight": 250,
+        "pieceWeight": null,
         "gi": 18
       },
       "豆花": {
@@ -492,7 +492,7 @@
         "carbs": 3.6,
         "protein": 5.3,
         "fat": 2.4,
-        "pieceWeight": 200,
+        "pieceWeight": null,
         "gi": 27
       },
       "臭豆腐": {
@@ -500,7 +500,7 @@
         "carbs": 6.8,
         "protein": 11.2,
         "fat": 6.9,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 25
       },
       "腐乳": {
@@ -508,7 +508,7 @@
         "carbs": 7.6,
         "protein": 10.9,
         "fat": 6.8,
-        "pieceWeight": 20,
+        "pieceWeight": null,
         "gi": 25
       },
       "黄豆": {
@@ -596,7 +596,7 @@
         "carbs": 10.1,
         "protein": 13.1,
         "fat": 5,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 17
       }
     },
@@ -606,7 +606,7 @@
         "carbs": 1.8,
         "protein": 1.2,
         "fat": 0.3,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 15
       },
       "白菜": {
@@ -614,7 +614,7 @@
         "carbs": 2.4,
         "protein": 1.5,
         "fat": 0.1,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 25
       },
       "小白菜": {
@@ -622,7 +622,7 @@
         "carbs": 1.6,
         "protein": 1.3,
         "fat": 0.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 20
       },
       "大白菜": {
@@ -630,7 +630,7 @@
         "carbs": 2.4,
         "protein": 1.5,
         "fat": 0.1,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 25
       },
       "圆白菜": {
@@ -638,7 +638,7 @@
         "carbs": 4.6,
         "protein": 1.5,
         "fat": 0.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 32
       },
       "卷心菜": {
@@ -646,7 +646,7 @@
         "carbs": 4.6,
         "protein": 1.5,
         "fat": 0.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 32
       },
       "包菜": {
@@ -654,7 +654,7 @@
         "carbs": 4.6,
         "protein": 1.5,
         "fat": 0.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 32
       },
       "菠菜": {
@@ -662,7 +662,7 @@
         "carbs": 2.2,
         "protein": 2.2,
         "fat": 0.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 15
       },
       "生菜": {
@@ -670,7 +670,7 @@
         "carbs": 1.6,
         "protein": 1.2,
         "fat": 0.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 15
       },
       "油麦菜": {
@@ -678,7 +678,7 @@
         "carbs": 1.5,
         "protein": 1.1,
         "fat": 0.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 15
       },
       "莴笋": {
@@ -686,7 +686,7 @@
         "carbs": 2.2,
         "protein": 1.1,
         "fat": 0.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 15
       },
       "茼蒿": {
@@ -694,7 +694,7 @@
         "carbs": 2.8,
         "protein": 2.4,
         "fat": 0.3,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 25
       },
       "芹菜": {
@@ -702,7 +702,7 @@
         "carbs": 2.2,
         "protein": 1.2,
         "fat": 0.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 15
       },
       "香菜": {
@@ -710,7 +710,7 @@
         "carbs": 3.2,
         "protein": 2.1,
         "fat": 0.4,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 25
       },
       "韭菜": {
@@ -718,7 +718,7 @@
         "carbs": 3.6,
         "protein": 2.4,
         "fat": 0.3,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 25
       },
       "韭黄": {
@@ -726,7 +726,7 @@
         "carbs": 3.2,
         "protein": 2.1,
         "fat": 0.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 25
       },
       "大葱": {
@@ -734,7 +734,7 @@
         "carbs": 5.5,
         "protein": 1.6,
         "fat": 0.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 30
       },
       "小葱": {
@@ -742,7 +742,7 @@
         "carbs": 4.2,
         "protein": 2.2,
         "fat": 0.3,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 30
       },
       "洋葱": {
@@ -750,7 +750,7 @@
         "carbs": 8.1,
         "protein": 1.2,
         "fat": 0.1,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 30
       },
       "大蒜": {
@@ -758,7 +758,7 @@
         "carbs": 26.5,
         "protein": 5.2,
         "fat": 0.2,
-        "pieceWeight": 5,
+        "pieceWeight": null,
         "gi": 30
       },
       "蒜苔": {
@@ -766,7 +766,7 @@
         "carbs": 4.1,
         "protein": 1.8,
         "fat": 0.1,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 25
       },
       "西红柿": {
@@ -774,7 +774,7 @@
         "carbs": 3.2,
         "protein": 0.8,
         "fat": 0.1,
-        "pieceWeight": 150,
+        "pieceWeight": null,
         "gi": 15
       },
       "番茄": {
@@ -782,7 +782,7 @@
         "carbs": 3.2,
         "protein": 0.8,
         "fat": 0.1,
-        "pieceWeight": 150,
+        "pieceWeight": null,
         "gi": 15
       },
       "黄瓜": {
@@ -790,7 +790,7 @@
         "carbs": 2.2,
         "protein": 0.7,
         "fat": 0.1,
-        "pieceWeight": 150,
+        "pieceWeight": null,
         "gi": 15
       },
       "茄子": {
@@ -798,7 +798,7 @@
         "carbs": 4.1,
         "protein": 1.2,
         "fat": 0.1,
-        "pieceWeight": 150,
+        "pieceWeight": null,
         "gi": 15
       },
       "青椒": {
@@ -806,7 +806,7 @@
         "carbs": 4,
         "protein": 1.1,
         "fat": 0.2,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 15
       },
       "辣椒": {
@@ -814,7 +814,7 @@
         "carbs": 5.8,
         "protein": 1.5,
         "fat": 0.3,
-        "pieceWeight": 20,
+        "pieceWeight": null,
         "gi": 15
       },
       "菜花": {
@@ -822,7 +822,7 @@
         "carbs": 3.8,
         "protein": 2.1,
         "fat": 0.2,
-        "pieceWeight": 150,
+        "pieceWeight": null,
         "gi": 25
       },
       "西兰花": {
@@ -830,7 +830,7 @@
         "carbs": 3.7,
         "protein": 2.8,
         "fat": 0.3,
-        "pieceWeight": 150,
+        "pieceWeight": null,
         "gi": 25
       },
       "南瓜": {
@@ -838,7 +838,7 @@
         "carbs": 5.6,
         "protein": 1,
         "fat": 0.1,
-        "pieceWeight": 200,
+        "pieceWeight": null,
         "gi": 75
       },
       "冬瓜": {
@@ -846,7 +846,7 @@
         "carbs": 2.2,
         "protein": 0.3,
         "fat": 0.1,
-        "pieceWeight": 200,
+        "pieceWeight": null,
         "gi": 20
       },
       "苦瓜": {
@@ -854,7 +854,7 @@
         "carbs": 3.5,
         "protein": 1.2,
         "fat": 0.1,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 25
       },
       "丝瓜": {
@@ -862,7 +862,7 @@
         "carbs": 3.6,
         "protein": 1.2,
         "fat": 0.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 25
       },
       "西葫芦": {
@@ -870,7 +870,7 @@
         "carbs": 2.8,
         "protein": 1,
         "fat": 0.1,
-        "pieceWeight": 150,
+        "pieceWeight": null,
         "gi": 25
       },
       "豆角": {
@@ -878,7 +878,7 @@
         "carbs": 5.2,
         "protein": 2.5,
         "fat": 0.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 25
       },
       "四季豆": {
@@ -886,7 +886,7 @@
         "carbs": 5.2,
         "protein": 2.5,
         "fat": 0.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 25
       },
       "豇豆": {
@@ -894,7 +894,7 @@
         "carbs": 5.1,
         "protein": 2.8,
         "fat": 0.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 25
       },
       "扁豆": {
@@ -902,7 +902,7 @@
         "carbs": 5.8,
         "protein": 2.8,
         "fat": 0.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 25
       },
       "荷兰豆": {
@@ -910,7 +910,7 @@
         "carbs": 4.5,
         "protein": 2.6,
         "fat": 0.2,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 25
       },
       "芦笋": {
@@ -918,7 +918,7 @@
         "carbs": 2.2,
         "protein": 2.2,
         "fat": 0.1,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 25
       },
       "茭白": {
@@ -926,7 +926,7 @@
         "carbs": 4.2,
         "protein": 1.8,
         "fat": 0.1,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 25
       },
       "竹笋": {
@@ -934,7 +934,7 @@
         "carbs": 3.6,
         "protein": 2.6,
         "fat": 0.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 25
       },
       "春笋": {
@@ -942,7 +942,7 @@
         "carbs": 3.6,
         "protein": 2.6,
         "fat": 0.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 25
       },
       "冬笋": {
@@ -950,7 +950,7 @@
         "carbs": 3.2,
         "protein": 2.4,
         "fat": 0.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 25
       },
       "莴苣": {
@@ -958,7 +958,7 @@
         "carbs": 2.2,
         "protein": 1.1,
         "fat": 0.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 15
       },
       "苋菜": {
@@ -966,7 +966,7 @@
         "carbs": 2.8,
         "protein": 2.8,
         "fat": 0.3,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 25
       },
       "空心菜": {
@@ -974,7 +974,7 @@
         "carbs": 2.2,
         "protein": 2.2,
         "fat": 0.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 25
       },
       "红薯叶": {
@@ -982,7 +982,7 @@
         "carbs": 3.1,
         "protein": 2.4,
         "fat": 0.3,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 25
       },
       "芥菜": {
@@ -990,7 +990,7 @@
         "carbs": 2.2,
         "protein": 1.8,
         "fat": 0.3,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 25
       },
       "雪里蕻": {
@@ -998,7 +998,7 @@
         "carbs": 2.5,
         "protein": 2.2,
         "fat": 0.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 25
       },
       "榨菜": {
@@ -1006,7 +1006,7 @@
         "carbs": 5.2,
         "protein": 2.5,
         "fat": 0.3,
-        "pieceWeight": 20,
+        "pieceWeight": null,
         "gi": 30
       },
       "萝卜": {
@@ -1014,7 +1014,7 @@
         "carbs": 3.2,
         "protein": 0.9,
         "fat": 0.1,
-        "pieceWeight": 200,
+        "pieceWeight": null,
         "gi": 25
       },
       "白萝卜": {
@@ -1022,7 +1022,7 @@
         "carbs": 3.2,
         "protein": 0.9,
         "fat": 0.1,
-        "pieceWeight": 200,
+        "pieceWeight": null,
         "gi": 25
       },
       "胡萝卜": {
@@ -1030,7 +1030,7 @@
         "carbs": 7.9,
         "protein": 1,
         "fat": 0.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 39
       },
       "青萝卜": {
@@ -1038,7 +1038,7 @@
         "carbs": 6.2,
         "protein": 1.1,
         "fat": 0.1,
-        "pieceWeight": 150,
+        "pieceWeight": null,
         "gi": 25
       },
       "土豆": {
@@ -1046,7 +1046,7 @@
         "carbs": 17.8,
         "protein": 2.6,
         "fat": 0.2,
-        "pieceWeight": 150,
+        "pieceWeight": null,
         "gi": 77
       },
       "藕": {
@@ -1054,7 +1054,7 @@
         "carbs": 10.9,
         "protein": 1.2,
         "fat": 0.1,
-        "pieceWeight": 150,
+        "pieceWeight": null,
         "gi": 30
       },
       "芋头": {
@@ -1062,7 +1062,7 @@
         "carbs": 18.6,
         "protein": 1.3,
         "fat": 0.2,
-        "pieceWeight": 150,
+        "pieceWeight": null,
         "gi": 47
       },
       "魔芋": {
@@ -1070,7 +1070,7 @@
         "carbs": 1.2,
         "protein": 0.1,
         "fat": 0.1,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 17
       },
       "木耳": {
@@ -1078,7 +1078,7 @@
         "carbs": 3.4,
         "protein": 1.5,
         "fat": 0.2,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 25
       },
       "银耳": {
@@ -1086,7 +1086,7 @@
         "carbs": 44.2,
         "protein": 10,
         "fat": 1.4,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 25
       },
       "香菇": {
@@ -1094,7 +1094,7 @@
         "carbs": 2.5,
         "protein": 2.2,
         "fat": 0.3,
-        "pieceWeight": 20,
+        "pieceWeight": null,
         "gi": 25
       },
       "蘑菇": {
@@ -1102,7 +1102,7 @@
         "carbs": 2.8,
         "protein": 2.8,
         "fat": 0.2,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 25
       },
       "金针菇": {
@@ -1110,7 +1110,7 @@
         "carbs": 3.1,
         "protein": 2.4,
         "fat": 0.4,
-        "pieceWeight": 30,
+        "pieceWeight": null,
         "gi": 25
       },
       "平菇": {
@@ -1118,7 +1118,7 @@
         "carbs": 2.5,
         "protein": 2.2,
         "fat": 0.2,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 25
       },
       "杏鲍菇": {
@@ -1126,7 +1126,7 @@
         "carbs": 2.8,
         "protein": 2.5,
         "fat": 0.3,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 25
       },
       "口蘑": {
@@ -1134,7 +1134,7 @@
         "carbs": 2.8,
         "protein": 3.2,
         "fat": 0.2,
-        "pieceWeight": 30,
+        "pieceWeight": null,
         "gi": 25
       },
       "鸡腿菇": {
@@ -1142,7 +1142,7 @@
         "carbs": 3.1,
         "protein": 3.2,
         "fat": 0.2,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 25
       },
       "茶树菇": {
@@ -1150,7 +1150,7 @@
         "carbs": 3.5,
         "protein": 3.5,
         "fat": 0.2,
-        "pieceWeight": 30,
+        "pieceWeight": null,
         "gi": 25
       },
       "榛蘑": {
@@ -1158,7 +1158,7 @@
         "carbs": 3.2,
         "protein": 2.8,
         "fat": 0.2,
-        "pieceWeight": 30,
+        "pieceWeight": null,
         "gi": 25
       },
       "猴头菇": {
@@ -1166,7 +1166,7 @@
         "carbs": 0.9,
         "protein": 2,
         "fat": 0.2,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 25
       },
       "海带": {
@@ -1174,7 +1174,7 @@
         "carbs": 1.2,
         "protein": 0.9,
         "fat": 0.1,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 15
       },
       "紫菜": {
@@ -1182,7 +1182,7 @@
         "carbs": 22.4,
         "protein": 26.7,
         "fat": 5.1,
-        "pieceWeight": 5,
+        "pieceWeight": null,
         "gi": 35
       },
       "裙带菜": {
@@ -1190,7 +1190,7 @@
         "carbs": 3.2,
         "protein": 2.8,
         "fat": 0.4,
-        "pieceWeight": 20,
+        "pieceWeight": null,
         "gi": 25
       },
       "豆芽": {
@@ -1198,7 +1198,7 @@
         "carbs": 4.5,
         "protein": 2.5,
         "fat": 0.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 25
       }
     },
@@ -1626,7 +1626,7 @@
         "carbs": 0,
         "protein": 21.3,
         "fat": 6.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "猪五花肉": {
@@ -1634,7 +1634,7 @@
         "carbs": 0,
         "protein": 13.5,
         "fat": 37.3,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "猪里脊": {
@@ -1642,7 +1642,7 @@
         "carbs": 0,
         "protein": 20.4,
         "fat": 7.9,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "猪排骨": {
@@ -1650,7 +1650,7 @@
         "carbs": 0,
         "protein": 16.7,
         "fat": 23.1,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "猪蹄": {
@@ -1658,7 +1658,7 @@
         "carbs": 0,
         "protein": 22.6,
         "fat": 18.1,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "猪肝": {
@@ -1666,7 +1666,7 @@
         "carbs": 2.5,
         "protein": 22.7,
         "fat": 3.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "猪心": {
@@ -1674,7 +1674,7 @@
         "carbs": 0,
         "protein": 17.7,
         "fat": 4.8,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "猪肚": {
@@ -1682,7 +1682,7 @@
         "carbs": 0,
         "protein": 18.2,
         "fat": 3.6,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "猪血": {
@@ -1690,7 +1690,7 @@
         "carbs": 0.3,
         "protein": 6.8,
         "fat": 0.4,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "金华火腿": {
@@ -1698,7 +1698,7 @@
         "carbs": 0,
         "protein": 29.8,
         "fat": 20.8,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 0
       },
       "腊肉": {
@@ -1706,7 +1706,7 @@
         "carbs": 2.6,
         "protein": 22.3,
         "fat": 19.8,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 0
       },
       "香肠": {
@@ -1714,7 +1714,7 @@
         "carbs": 8.2,
         "protein": 13.2,
         "fat": 22.6,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 51
       },
       "火腿肠": {
@@ -1722,7 +1722,7 @@
         "carbs": 8.6,
         "protein": 8.6,
         "fat": 15.2,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 51
       },
       "午餐肉": {
@@ -1730,7 +1730,7 @@
         "carbs": 5.2,
         "protein": 11.5,
         "fat": 17.8,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 45
       },
       "培根": {
@@ -1738,7 +1738,7 @@
         "carbs": 2.1,
         "protein": 18.3,
         "fat": 26.6,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 0
       },
       "肉松": {
@@ -1746,7 +1746,7 @@
         "carbs": 16.8,
         "protein": 38.5,
         "fat": 6.8,
-        "pieceWeight": 20,
+        "pieceWeight": null,
         "gi": 45
       },
       "牛肉(瘦)": {
@@ -1754,7 +1754,7 @@
         "carbs": 0,
         "protein": 22.3,
         "fat": 3.1,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "牛里脊": {
@@ -1762,7 +1762,7 @@
         "carbs": 0,
         "protein": 22.5,
         "fat": 2.4,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "牛腩": {
@@ -1770,7 +1770,7 @@
         "carbs": 0,
         "protein": 17.8,
         "fat": 15.6,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "牛腱子": {
@@ -1778,7 +1778,7 @@
         "carbs": 0,
         "protein": 23.5,
         "fat": 3.5,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "肥牛": {
@@ -1786,7 +1786,7 @@
         "carbs": 0,
         "protein": 18.6,
         "fat": 13.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "酱牛肉": {
@@ -1794,7 +1794,7 @@
         "carbs": 2.5,
         "protein": 31.4,
         "fat": 5.8,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 0
       },
       "羊肉(瘦)": {
@@ -1802,7 +1802,7 @@
         "carbs": 0,
         "protein": 20.5,
         "fat": 3.3,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "羊排": {
@@ -1810,7 +1810,7 @@
         "carbs": 0,
         "protein": 18.2,
         "fat": 15.7,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "羊肉串": {
@@ -1818,7 +1818,7 @@
         "carbs": 0,
         "protein": 26.8,
         "fat": 13.5,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 0
       },
       "驴肉": {
@@ -1826,7 +1826,7 @@
         "carbs": 0,
         "protein": 21.5,
         "fat": 3.5,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "兔肉": {
@@ -1834,7 +1834,7 @@
         "carbs": 0,
         "protein": 21.8,
         "fat": 1.8,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       }
     },
@@ -1844,7 +1844,7 @@
         "carbs": 0,
         "protein": 24.6,
         "fat": 1.7,
-        "pieceWeight": 150,
+        "pieceWeight": null,
         "gi": 0
       },
       "鸡腿肉": {
@@ -1852,7 +1852,7 @@
         "carbs": 0,
         "protein": 23.3,
         "fat": 9.5,
-        "pieceWeight": 150,
+        "pieceWeight": null,
         "gi": 0
       },
       "鸡翅": {
@@ -1860,7 +1860,7 @@
         "carbs": 0,
         "protein": 21.5,
         "fat": 12.3,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "鸡爪": {
@@ -1868,7 +1868,7 @@
         "carbs": 0,
         "protein": 24.2,
         "fat": 12.8,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 0
       },
       "鸡肝": {
@@ -1876,7 +1876,7 @@
         "carbs": 2.1,
         "protein": 17.2,
         "fat": 4.8,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 0
       },
       "鸡心": {
@@ -1884,7 +1884,7 @@
         "carbs": 0,
         "protein": 16.8,
         "fat": 5.2,
-        "pieceWeight": 30,
+        "pieceWeight": null,
         "gi": 0
       },
       "鸡肫": {
@@ -1892,7 +1892,7 @@
         "carbs": 0,
         "protein": 19.8,
         "fat": 3.5,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 0
       },
       "乌鸡": {
@@ -1900,7 +1900,7 @@
         "carbs": 0,
         "protein": 22.3,
         "fat": 2.9,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "炸鸡": {
@@ -1908,7 +1908,7 @@
         "carbs": 12.6,
         "protein": 18.5,
         "fat": 19.6,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 51
       },
       "烤鸭": {
@@ -1916,7 +1916,7 @@
         "carbs": 0,
         "protein": 21.4,
         "fat": 19.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "烧鸡": {
@@ -1924,7 +1924,7 @@
         "carbs": 0,
         "protein": 26.8,
         "fat": 11.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "鸭肉": {
@@ -1932,7 +1932,7 @@
         "carbs": 0,
         "protein": 21.4,
         "fat": 6.8,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "鸭胸肉": {
@@ -1940,7 +1940,7 @@
         "carbs": 0,
         "protein": 24.5,
         "fat": 3.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "鸭腿肉": {
@@ -1948,7 +1948,7 @@
         "carbs": 0,
         "protein": 22.8,
         "fat": 9.5,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "鸭肫": {
@@ -1956,7 +1956,7 @@
         "carbs": 0,
         "protein": 20.5,
         "fat": 3.6,
-        "pieceWeight": 60,
+        "pieceWeight": null,
         "gi": 0
       },
       "盐水鸭": {
@@ -1964,7 +1964,7 @@
         "carbs": 0,
         "protein": 22.8,
         "fat": 10.5,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "鹅肉": {
@@ -1972,7 +1972,7 @@
         "carbs": 0,
         "protein": 23.5,
         "fat": 7.1,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       }
     },
@@ -2072,7 +2072,7 @@
         "carbs": 0,
         "protein": 18.5,
         "fat": 3.5,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "鲤鱼": {
@@ -2080,7 +2080,7 @@
         "carbs": 0,
         "protein": 18.2,
         "fat": 3.8,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "鲫鱼": {
@@ -2088,7 +2088,7 @@
         "carbs": 0,
         "protein": 18.8,
         "fat": 3.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "鲢鱼": {
@@ -2096,7 +2096,7 @@
         "carbs": 0,
         "protein": 18.6,
         "fat": 2.6,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "鳙鱼": {
@@ -2104,7 +2104,7 @@
         "carbs": 0,
         "protein": 18.3,
         "fat": 2.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "鳜鱼": {
@@ -2112,7 +2112,7 @@
         "carbs": 0,
         "protein": 21.5,
         "fat": 3.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "黄鳝": {
@@ -2120,7 +2120,7 @@
         "carbs": 0,
         "protein": 17.8,
         "fat": 1.5,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "泥鳅": {
@@ -2128,7 +2128,7 @@
         "carbs": 0,
         "protein": 18.2,
         "fat": 1.5,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 0
       },
       "鲈鱼": {
@@ -2136,7 +2136,7 @@
         "carbs": 0,
         "protein": 19.8,
         "fat": 2.5,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "罗非鱼": {
@@ -2144,7 +2144,7 @@
         "carbs": 0,
         "protein": 19.2,
         "fat": 1.8,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "黑鱼": {
@@ -2152,7 +2152,7 @@
         "carbs": 0,
         "protein": 18.5,
         "fat": 1.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "带鱼": {
@@ -2160,7 +2160,7 @@
         "carbs": 0,
         "protein": 17.8,
         "fat": 5.8,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "黄花鱼": {
@@ -2168,7 +2168,7 @@
         "carbs": 0,
         "protein": 18.5,
         "fat": 2.8,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "三文鱼": {
@@ -2176,7 +2176,7 @@
         "carbs": 0,
         "protein": 18.6,
         "fat": 6.8,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "金枪鱼": {
@@ -2184,7 +2184,7 @@
         "carbs": 0,
         "protein": 23.3,
         "fat": 4.8,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "鳕鱼": {
@@ -2192,7 +2192,7 @@
         "carbs": 0,
         "protein": 18.5,
         "fat": 1.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "沙丁鱼": {
@@ -2200,7 +2200,7 @@
         "carbs": 0,
         "protein": 19.2,
         "fat": 1.8,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 0
       },
       "秋刀鱼": {
@@ -2208,7 +2208,7 @@
         "carbs": 0,
         "protein": 18.2,
         "fat": 6.5,
-        "pieceWeight": 80,
+        "pieceWeight": null,
         "gi": 0
       },
       "龙利鱼": {
@@ -2216,7 +2216,7 @@
         "carbs": 0,
         "protein": 18.5,
         "fat": 0.5,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "巴沙鱼": {
@@ -2224,7 +2224,7 @@
         "carbs": 0,
         "protein": 16.8,
         "fat": 0.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "对虾": {
@@ -2232,7 +2232,7 @@
         "carbs": 0,
         "protein": 18.5,
         "fat": 0.8,
-        "pieceWeight": 30,
+        "pieceWeight": null,
         "gi": 0
       },
       "基围虾": {
@@ -2240,7 +2240,7 @@
         "carbs": 0,
         "protein": 18.2,
         "fat": 0.5,
-        "pieceWeight": 30,
+        "pieceWeight": null,
         "gi": 0
       },
       "北极虾": {
@@ -2248,7 +2248,7 @@
         "carbs": 0,
         "protein": 16.5,
         "fat": 0.2,
-        "pieceWeight": 30,
+        "pieceWeight": null,
         "gi": 0
       },
       "皮皮虾": {
@@ -2256,7 +2256,7 @@
         "carbs": 0,
         "protein": 18.2,
         "fat": 0.9,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 0
       },
       "小龙虾": {
@@ -2264,7 +2264,7 @@
         "carbs": 0,
         "protein": 18.5,
         "fat": 0.6,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 0
       },
       "大闸蟹": {
@@ -2272,7 +2272,7 @@
         "carbs": 0,
         "protein": 18.2,
         "fat": 2.8,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "河蟹": {
@@ -2280,7 +2280,7 @@
         "carbs": 0,
         "protein": 17.5,
         "fat": 2.6,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "梭子蟹": {
@@ -2288,7 +2288,7 @@
         "carbs": 0,
         "protein": 18.5,
         "fat": 2.1,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "帝王蟹": {
@@ -2296,7 +2296,7 @@
         "carbs": 0,
         "protein": 18.5,
         "fat": 0.6,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "海参": {
@@ -2304,7 +2304,7 @@
         "carbs": 0,
         "protein": 16.5,
         "fat": 0.2,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 0
       },
       "鲍鱼": {
@@ -2312,7 +2312,7 @@
         "carbs": 2.6,
         "protein": 12.6,
         "fat": 1.5,
-        "pieceWeight": 30,
+        "pieceWeight": null,
         "gi": 0
       },
       "扇贝": {
@@ -2320,7 +2320,7 @@
         "carbs": 1.2,
         "protein": 11.8,
         "fat": 0.6,
-        "pieceWeight": 20,
+        "pieceWeight": null,
         "gi": 0
       },
       "生蚝": {
@@ -2328,7 +2328,7 @@
         "carbs": 2.2,
         "protein": 10.8,
         "fat": 0.5,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 0
       },
       "牡蛎": {
@@ -2336,7 +2336,7 @@
         "carbs": 2.2,
         "protein": 10.8,
         "fat": 0.5,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 0
       },
       "蛤蜊": {
@@ -2344,7 +2344,7 @@
         "carbs": 0.8,
         "protein": 11.8,
         "fat": 0.4,
-        "pieceWeight": 20,
+        "pieceWeight": null,
         "gi": 0
       },
       "花蛤": {
@@ -2352,7 +2352,7 @@
         "carbs": 0.6,
         "protein": 8.8,
         "fat": 0.4,
-        "pieceWeight": 20,
+        "pieceWeight": null,
         "gi": 0
       },
       "蛏子": {
@@ -2360,7 +2360,7 @@
         "carbs": 1.2,
         "protein": 14.2,
         "fat": 0.5,
-        "pieceWeight": 30,
+        "pieceWeight": null,
         "gi": 0
       },
       "田螺": {
@@ -2368,7 +2368,7 @@
         "carbs": 0.6,
         "protein": 12.5,
         "fat": 0.8,
-        "pieceWeight": 15,
+        "pieceWeight": null,
         "gi": 0
       },
       "鱿鱼": {
@@ -2376,7 +2376,7 @@
         "carbs": 0,
         "protein": 18.5,
         "fat": 1.8,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 0
       },
       "章鱼": {
@@ -2384,7 +2384,7 @@
         "carbs": 0,
         "protein": 16.5,
         "fat": 1.2,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 0
       },
       "墨鱼": {
@@ -2392,7 +2392,7 @@
         "carbs": 0,
         "protein": 17.8,
         "fat": 1.5,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 0
       },
       "海蜇": {
@@ -2400,7 +2400,7 @@
         "carbs": 0,
         "protein": 3.2,
         "fat": 0.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "海胆": {
@@ -2408,7 +2408,7 @@
         "carbs": 1.2,
         "protein": 13.2,
         "fat": 2.5,
-        "pieceWeight": 30,
+        "pieceWeight": null,
         "gi": 0
       },
       "干贝": {
@@ -2416,7 +2416,7 @@
         "carbs": 5.2,
         "protein": 55.6,
         "fat": 1.2,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 0
       },
       "虾皮": {
@@ -2424,7 +2424,7 @@
         "carbs": 2.5,
         "protein": 30.8,
         "fat": 2.2,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 0
       },
       "虾米": {
@@ -2432,7 +2432,7 @@
         "carbs": 5.2,
         "protein": 43.8,
         "fat": 2.8,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 0
       },
       "蟹棒": {
@@ -2440,7 +2440,7 @@
         "carbs": 8.5,
         "protein": 8.2,
         "fat": 0.8,
-        "pieceWeight": 30,
+        "pieceWeight": null,
         "gi": 45
       },
       "刁子鱼": {
@@ -2448,7 +2448,7 @@
         "carbs": 0,
         "protein": 19.8,
         "fat": 2.5,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "白条鱼": {
@@ -2456,7 +2456,7 @@
         "carbs": 0,
         "protein": 19.8,
         "fat": 2.5,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "翘嘴鱼": {
@@ -2464,7 +2464,7 @@
         "carbs": 0,
         "protein": 20.5,
         "fat": 2.8,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "青鱼": {
@@ -2472,7 +2472,7 @@
         "carbs": 0,
         "protein": 20.1,
         "fat": 4.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "马口鱼": {
@@ -2480,7 +2480,7 @@
         "carbs": 0,
         "protein": 19.5,
         "fat": 2.2,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       },
       "鲶鱼": {
@@ -2488,7 +2488,7 @@
         "carbs": 0,
         "protein": 17.3,
         "fat": 3.7,
-        "pieceWeight": 100,
+        "pieceWeight": null,
         "gi": 0
       }
     },
@@ -2578,7 +2578,7 @@
         "carbs": 0,
         "protein": 0,
         "fat": 1,
-        "pieceWeight": 1,
+        "pieceWeight": null,
         "gi": 0
       }
     },
@@ -2960,7 +2960,7 @@
         "carbs": 9.8,
         "protein": 8.1,
         "fat": 0.1,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 0
       },
       "生抽": {
@@ -2968,7 +2968,7 @@
         "carbs": 9.8,
         "protein": 8.1,
         "fat": 0.1,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 0
       },
       "老抽": {
@@ -2976,7 +2976,7 @@
         "carbs": 9.8,
         "protein": 8.1,
         "fat": 0.1,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 0
       },
       "醋": {
@@ -2984,7 +2984,7 @@
         "carbs": 2.5,
         "protein": 2.1,
         "fat": 0.1,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 0
       },
       "香醋": {
@@ -2992,7 +2992,7 @@
         "carbs": 2.5,
         "protein": 2.1,
         "fat": 0.1,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 0
       },
       "白醋": {
@@ -3000,7 +3000,7 @@
         "carbs": 2.5,
         "protein": 2.1,
         "fat": 0.1,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 0
       },
       "料酒": {
@@ -3008,7 +3008,7 @@
         "carbs": 0,
         "protein": 0,
         "fat": 0,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 0
       },
       "蚝油": {
@@ -3016,7 +3016,7 @@
         "carbs": 11.2,
         "protein": 4.5,
         "fat": 0.2,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 50
       },
       "芝麻酱": {
@@ -3024,7 +3024,7 @@
         "carbs": 16.8,
         "protein": 19.2,
         "fat": 58.2,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 0
       },
       "番茄酱": {
@@ -3032,7 +3032,7 @@
         "carbs": 24,
         "protein": 1.1,
         "fat": 0.3,
-        "pieceWeight": 15,
+        "pieceWeight": null,
         "gi": 58
       },
       "沙拉酱": {
@@ -3040,7 +3040,7 @@
         "carbs": 1.8,
         "protein": 1.2,
         "fat": 79.2,
-        "pieceWeight": 15,
+        "pieceWeight": null,
         "gi": 0
       },
       "蛋黄酱": {
@@ -3048,7 +3048,7 @@
         "carbs": 1.8,
         "protein": 1.2,
         "fat": 79.2,
-        "pieceWeight": 15,
+        "pieceWeight": null,
         "gi": 0
       },
       "芥末酱": {
@@ -3056,7 +3056,7 @@
         "carbs": 13.2,
         "protein": 3.5,
         "fat": 4.5,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 50
       },
       "辣椒酱": {
@@ -3064,7 +3064,7 @@
         "carbs": 15.8,
         "protein": 4.2,
         "fat": 4.8,
-        "pieceWeight": 15,
+        "pieceWeight": null,
         "gi": 50
       },
       "豆瓣酱": {
@@ -3072,7 +3072,7 @@
         "carbs": 15.6,
         "protein": 8.2,
         "fat": 8.9,
-        "pieceWeight": 15,
+        "pieceWeight": null,
         "gi": 50
       },
       "黄豆酱": {
@@ -3080,7 +3080,7 @@
         "carbs": 14.2,
         "protein": 11.8,
         "fat": 5.2,
-        "pieceWeight": 15,
+        "pieceWeight": null,
         "gi": 50
       },
       "甜面酱": {
@@ -3088,7 +3088,7 @@
         "carbs": 24.8,
         "protein": 3.2,
         "fat": 0.6,
-        "pieceWeight": 15,
+        "pieceWeight": null,
         "gi": 70
       },
       "糖": {
@@ -3096,7 +3096,7 @@
         "carbs": 99.8,
         "protein": 0,
         "fat": 0,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 80
       },
       "白砂糖": {
@@ -3104,7 +3104,7 @@
         "carbs": 99.8,
         "protein": 0,
         "fat": 0,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 80
       },
       "红糖": {
@@ -3112,7 +3112,7 @@
         "carbs": 96.6,
         "protein": 0.5,
         "fat": 0,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 65
       },
       "冰糖": {
@@ -3120,7 +3120,7 @@
         "carbs": 98.9,
         "protein": 0,
         "fat": 0,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 80
       },
       "盐": {
@@ -3128,7 +3128,7 @@
         "carbs": 0,
         "protein": 0,
         "fat": 0,
-        "pieceWeight": 5,
+        "pieceWeight": null,
         "gi": 0
       },
       "鸡精": {
@@ -3136,7 +3136,7 @@
         "carbs": 17.5,
         "protein": 16.8,
         "fat": 0.2,
-        "pieceWeight": 5,
+        "pieceWeight": null,
         "gi": 50
       },
       "味精": {
@@ -3144,7 +3144,7 @@
         "carbs": 60.1,
         "protein": 0,
         "fat": 0,
-        "pieceWeight": 5,
+        "pieceWeight": null,
         "gi": 0
       },
       "五香粉": {
@@ -3152,7 +3152,7 @@
         "carbs": 58.2,
         "protein": 8.5,
         "fat": 8.2,
-        "pieceWeight": 5,
+        "pieceWeight": null,
         "gi": 0
       },
       "孜然": {
@@ -3160,7 +3160,7 @@
         "carbs": 44.2,
         "protein": 15.8,
         "fat": 14.3,
-        "pieceWeight": 5,
+        "pieceWeight": null,
         "gi": 0
       },
       "花椒": {
@@ -3168,7 +3168,7 @@
         "carbs": 66.5,
         "protein": 11,
         "fat": 8.9,
-        "pieceWeight": 5,
+        "pieceWeight": null,
         "gi": 0
       },
       "胡椒粉": {
@@ -3176,7 +3176,7 @@
         "carbs": 77.8,
         "protein": 10.4,
         "fat": 3.3,
-        "pieceWeight": 5,
+        "pieceWeight": null,
         "gi": 0
       },
       "八角": {
@@ -3184,7 +3184,7 @@
         "carbs": 75.4,
         "protein": 8.1,
         "fat": 5.8,
-        "pieceWeight": 5,
+        "pieceWeight": null,
         "gi": 0
       },
       "橄榄油": {
@@ -3192,7 +3192,7 @@
         "carbs": 0,
         "protein": 0,
         "fat": 100,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 0
       },
       "花生油": {
@@ -3200,7 +3200,7 @@
         "carbs": 0,
         "protein": 0,
         "fat": 100,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 0
       },
       "菜籽油": {
@@ -3208,7 +3208,7 @@
         "carbs": 0,
         "protein": 0,
         "fat": 100,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 0
       },
       "大豆油": {
@@ -3216,7 +3216,7 @@
         "carbs": 0,
         "protein": 0,
         "fat": 100,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 0
       },
       "玉米油": {
@@ -3224,7 +3224,7 @@
         "carbs": 0,
         "protein": 0,
         "fat": 100,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 0
       },
       "芝麻油": {
@@ -3232,7 +3232,7 @@
         "carbs": 0,
         "protein": 0,
         "fat": 100,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 0
       },
       "香油": {
@@ -3240,7 +3240,7 @@
         "carbs": 0,
         "protein": 0,
         "fat": 100,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 0
       },
       "猪油": {
@@ -3248,7 +3248,7 @@
         "carbs": 0,
         "protein": 0,
         "fat": 99.6,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 0
       },
       "牛油": {
@@ -3256,7 +3256,7 @@
         "carbs": 0,
         "protein": 0,
         "fat": 94.8,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 0
       },
       "辣椒油": {
@@ -3264,7 +3264,7 @@
         "carbs": 0,
         "protein": 0,
         "fat": 100,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 0
       },
       "火锅底料": {
@@ -3272,7 +3272,7 @@
         "carbs": 28.5,
         "protein": 6.8,
         "fat": 38.5,
-        "pieceWeight": 50,
+        "pieceWeight": null,
         "gi": 60
       }
     },
