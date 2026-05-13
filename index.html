@@ -2181,6 +2181,7 @@
             
             const sortedRecipes = [...recipes]
                 .filter(r => r.calories > 0)
+                .filter(r => r.calories <= targetCalories && r.carbs <= targetCarbs && r.protein <= targetProtein && r.fat <= targetFat)
                 .sort((a, b) => Math.abs(a.calories - targetCalories / maxDishes) - Math.abs(b.calories - targetCalories / maxDishes))
                 .slice(0, maxRecipesToCheck);
             
@@ -2191,21 +2192,23 @@
                     const totalProtein = currentCombo.reduce((sum, r) => sum + r.protein, 0);
                     const totalFat = currentCombo.reduce((sum, r) => sum + r.fat, 0);
                     
-                    if (totalCalories <= targetCalories * 1.3) {
+                    if (totalCalories <= targetCalories && totalCarbs <= targetCarbs && 
+                        totalProtein <= targetProtein && totalFat <= targetFat &&
+                        totalCalories >= targetCalories * (1 - tolerance)) {
                         const calDiff = Math.abs(totalCalories - targetCalories) / Math.max(targetCalories, 1);
                         const carbDiff = Math.abs(totalCarbs - targetCarbs) / Math.max(targetCarbs, 1);
                         const proteinDiff = Math.abs(totalProtein - targetProtein) / Math.max(targetProtein, 1);
                         const fatDiff = Math.abs(totalFat - targetFat) / Math.max(targetFat, 1);
                         
-                        if (calDiff <= tolerance && 
-                            (carbDiff <= tolerance || proteinDiff <= tolerance)) {
-                            combinations.push({
-                                recipes: [...currentCombo],
-                                score: calDiff + carbDiff + proteinDiff + fatDiff,
-                                count: currentCombo.length,
-                                totalCalories: totalCalories
-                            });
-                        }
+                        combinations.push({
+                            recipes: [...currentCombo],
+                            score: calDiff + carbDiff + proteinDiff + fatDiff,
+                            count: currentCombo.length,
+                            totalCalories: totalCalories,
+                            totalCarbs: totalCarbs,
+                            totalProtein: totalProtein,
+                            totalFat: totalFat
+                        });
                     }
                 }
                 

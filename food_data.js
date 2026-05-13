@@ -129,11 +129,11 @@ function searchRecipes(keyword) {
 function getRecipesByNutrition(calories, carbs, protein, fat) {
     const tolerance = 0.3;
     return RECIPES.filter(r => {
-        const calMatch = Math.abs(r.calories - calories) <= calories * tolerance;
-        const carbMatch = Math.abs(r.carbs - carbs) <= carbs * tolerance || carbs === 0;
-        const proteinMatch = Math.abs(r.protein - protein) <= protein * tolerance || protein === 0;
-        const fatMatch = Math.abs(r.fat - fat) <= fat * tolerance || fat === 0;
-        return calMatch && (carbMatch || proteinMatch);
+        const calMatch = r.calories <= calories && r.calories >= calories * (1 - tolerance);
+        const carbMatch = r.carbs <= carbs || carbs === 0;
+        const proteinMatch = r.protein <= protein || protein === 0;
+        const fatMatch = r.fat <= fat || fat === 0;
+        return calMatch && carbMatch && proteinMatch && fatMatch;
     });
 }
 
