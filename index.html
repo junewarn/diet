@@ -1015,6 +1015,10 @@
                     <button class="btn btn-secondary" style="flex: 1;" onclick="refreshFoodList()">🔄 刷新列表</button>
                 </div>
                 
+                <div class="form-group">
+                    <button class="btn btn-danger" style="width: 100%;" onclick="resetFoodDatabase()">⚠️ 重置为云端数据</button>
+                </div>
+                
                 <div id="foodManagerList"></div>
             </div>
         </div>
@@ -2194,6 +2198,32 @@
         
         function saveFoodDatabase() {
             localStorage.setItem('food_database', JSON.stringify(FOOD_DATABASE));
+        }
+        
+        async function resetFoodDatabase() {
+            if (!confirm('确定要重置为云端数据吗？\n\n⚠️ 此操作将覆盖您本地修改的所有食物数据，不可撤销！')) {
+                return;
+            }
+            
+            try {
+                const response = await fetch('food_data.json');
+                const data = await response.json();
+                
+                let cloudFoodDatabase;
+                if (data.foods) {
+                    cloudFoodDatabase = flattenFoodData(data.foods);
+                } else {
+                    cloudFoodDatabase = data;
+                }
+                
+                FOOD_DATABASE = cloudFoodDatabase;
+                saveFoodDatabase();
+                renderFoodManagerList();
+                alert('✅ 食物数据库已成功重置为云端数据！');
+            } catch (error) {
+                console.error('重置食物数据库失败:', error);
+                alert('❌ 重置失败，无法加载云端数据。请检查网络连接。');
+            }
         }
         
         function renderFoodManagerList(keyword = '') {
