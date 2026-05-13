@@ -1434,7 +1434,6 @@
             document.getElementById('editMeal').value = meal;
             document.getElementById('foodName').value = food.name;
             document.getElementById('foodWeight').value = food.unit === 'piece' ? (food.quantity || 1) : (food.weight || 100);
-            document.getElementById('foodUnit').value = food.unit || 'g';
             document.getElementById('foodSearchResults').style.display = 'none';
             
             const foodInfo = getFoodInfo(food.name);
@@ -1446,6 +1445,7 @@
                 document.getElementById('foodUnit').disabled = true;
             }
             
+            document.getElementById('foodUnit').value = food.unit || 'g';
             updateCalculatedNutrition();
             document.getElementById('foodModal').classList.add('active');
         }
