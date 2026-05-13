@@ -2498,7 +2498,7 @@
         "carbs": 0,
         "protein": 0,
         "fat": 99.9,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 0
       },
       "豆油": {
@@ -2506,7 +2506,7 @@
         "carbs": 0,
         "protein": 0,
         "fat": 99.9,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 0
       },
       "花生油": {
@@ -2514,7 +2514,7 @@
         "carbs": 0,
         "protein": 0,
         "fat": 99.9,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 0
       },
       "橄榄油": {
@@ -2522,7 +2522,7 @@
         "carbs": 0,
         "protein": 0,
         "fat": 99.9,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 0
       },
       "香油": {
@@ -2530,7 +2530,7 @@
         "carbs": 0,
         "protein": 0,
         "fat": 99.9,
-        "pieceWeight": 5,
+        "pieceWeight": null,
         "gi": 0
       },
       "芝麻油": {
@@ -2538,7 +2538,7 @@
         "carbs": 0,
         "protein": 0,
         "fat": 99.9,
-        "pieceWeight": 5,
+        "pieceWeight": null,
         "gi": 0
       },
       "玉米油": {
@@ -2546,7 +2546,7 @@
         "carbs": 0,
         "protein": 0,
         "fat": 99.9,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 0
       },
       "葵花籽油": {
@@ -2554,7 +2554,7 @@
         "carbs": 0,
         "protein": 0,
         "fat": 99.9,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 0
       },
       "猪油": {
@@ -2562,7 +2562,7 @@
         "carbs": 0,
         "protein": 0,
         "fat": 99.6,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 0
       },
       "黄油": {
@@ -2570,7 +2570,7 @@
         "carbs": 0.7,
         "protein": 0.8,
         "fat": 81.1,
-        "pieceWeight": 10,
+        "pieceWeight": null,
         "gi": 0
       },
       "鱼油胶囊": {
