@@ -1,6 +1,16 @@
 let FOOD_DATABASE = {};
 
 async function loadFoodDatabase() {
+    const savedData = localStorage.getItem('food_database');
+    if (savedData) {
+        try {
+            FOOD_DATABASE = JSON.parse(savedData);
+            return;
+        } catch (error) {
+            console.error('Failed to parse saved food database:', error);
+        }
+    }
+    
     try {
         const response = await fetch('food_data.json');
         const data = await response.json();
