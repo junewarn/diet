@@ -2442,6 +2442,144 @@
         "fat": 0.8,
         "pieceWeight": 30,
         "gi": 45
+      },
+      "刁子鱼": {
+        "calories": 105,
+        "carbs": 0,
+        "protein": 19.8,
+        "fat": 2.5,
+        "pieceWeight": 100,
+        "gi": 0
+      },
+      "白条鱼": {
+        "calories": 105,
+        "carbs": 0,
+        "protein": 19.8,
+        "fat": 2.5,
+        "pieceWeight": 100,
+        "gi": 0
+      },
+      "翘嘴鱼": {
+        "calories": 108,
+        "carbs": 0,
+        "protein": 20.5,
+        "fat": 2.8,
+        "pieceWeight": 100,
+        "gi": 0
+      },
+      "青鱼": {
+        "calories": 118,
+        "carbs": 0,
+        "protein": 20.1,
+        "fat": 4.2,
+        "pieceWeight": 100,
+        "gi": 0
+      },
+      "马口鱼": {
+        "calories": 103,
+        "carbs": 0,
+        "protein": 19.5,
+        "fat": 2.2,
+        "pieceWeight": 100,
+        "gi": 0
+      },
+      "鲶鱼": {
+        "calories": 103,
+        "carbs": 0,
+        "protein": 17.3,
+        "fat": 3.7,
+        "pieceWeight": 100,
+        "gi": 0
+      }
+    },
+    "油脂类": {
+      "菜籽油": {
+        "calories": 899,
+        "carbs": 0,
+        "protein": 0,
+        "fat": 99.9,
+        "pieceWeight": 10,
+        "gi": 0
+      },
+      "豆油": {
+        "calories": 899,
+        "carbs": 0,
+        "protein": 0,
+        "fat": 99.9,
+        "pieceWeight": 10,
+        "gi": 0
+      },
+      "花生油": {
+        "calories": 899,
+        "carbs": 0,
+        "protein": 0,
+        "fat": 99.9,
+        "pieceWeight": 10,
+        "gi": 0
+      },
+      "橄榄油": {
+        "calories": 899,
+        "carbs": 0,
+        "protein": 0,
+        "fat": 99.9,
+        "pieceWeight": 10,
+        "gi": 0
+      },
+      "香油": {
+        "calories": 899,
+        "carbs": 0,
+        "protein": 0,
+        "fat": 99.9,
+        "pieceWeight": 5,
+        "gi": 0
+      },
+      "芝麻油": {
+        "calories": 899,
+        "carbs": 0,
+        "protein": 0,
+        "fat": 99.9,
+        "pieceWeight": 5,
+        "gi": 0
+      },
+      "玉米油": {
+        "calories": 899,
+        "carbs": 0,
+        "protein": 0,
+        "fat": 99.9,
+        "pieceWeight": 10,
+        "gi": 0
+      },
+      "葵花籽油": {
+        "calories": 899,
+        "carbs": 0,
+        "protein": 0,
+        "fat": 99.9,
+        "pieceWeight": 10,
+        "gi": 0
+      },
+      "猪油": {
+        "calories": 897,
+        "carbs": 0,
+        "protein": 0,
+        "fat": 99.6,
+        "pieceWeight": 10,
+        "gi": 0
+      },
+      "黄油": {
+        "calories": 717,
+        "carbs": 0.7,
+        "protein": 0.8,
+        "fat": 81.1,
+        "pieceWeight": 10,
+        "gi": 0
+      },
+      "鱼油胶囊": {
+        "calories": 10,
+        "carbs": 0,
+        "protein": 0,
+        "fat": 1,
+        "pieceWeight": 1,
+        "gi": 0
       }
     },
     "乳类及制品": {
