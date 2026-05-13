@@ -1036,8 +1036,8 @@
                     <div style="display: flex; gap: 10px;">
                         <input type="number" id="foodWeight" placeholder="数量" value="1" style="flex: 1;">
                         <select id="foodUnit" style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
-                            <option value="g">份</option>
-                            <option value="piece">个</option>
+                            <option value="g">克 (g)</option>
+                            <option value="piece">份</option>
                         </select>
                     </div>
                 </div>
@@ -1372,9 +1372,9 @@
                 return;
             }
             list.innerHTML = foods.map((food, index) => {
-                const displayUnit = food.unit === 'g' ? '份' : '个';
+                const displayUnit = food.unit === 'g' ? '克' : '份';
                 const displayQty = food.unit === 'piece' ? food.quantity : food.weight;
-                const weightDisplay = food.unit === 'piece' && food.weight ? `(${displayQty}个 ≈ ${food.weight}g)` : `(${displayQty}${displayUnit})`;
+                const weightDisplay = food.unit === 'piece' && food.weight ? `(${displayQty}份 ≈ ${food.weight}g)` : `(${displayQty}${displayUnit})`;
                 return `
                 <div class="food-item">
                     <div class="food-info">
@@ -1439,10 +1439,10 @@
             
             const foodInfo = getFoodInfo(food.name);
             if (foodInfo && foodInfo.pieceWeight !== null && foodInfo.pieceWeight !== undefined) {
-                document.getElementById('foodUnit').innerHTML = '<option value="g">份</option><option value="piece">个</option>';
+                document.getElementById('foodUnit').innerHTML = '<option value="g">克 (g)</option><option value="piece">份</option>';
                 document.getElementById('foodUnit').disabled = false;
             } else {
-                document.getElementById('foodUnit').innerHTML = '<option value="g">份</option>';
+                document.getElementById('foodUnit').innerHTML = '<option value="g">克 (g)</option>';
                 document.getElementById('foodUnit').disabled = true;
             }
             
@@ -1488,12 +1488,12 @@
             const weightInput = document.getElementById('foodWeight');
             
             if (!foodInfo || foodInfo.pieceWeight === null || foodInfo.pieceWeight === undefined) {
-                unitSelect.innerHTML = '<option value="g">份</option>';
+                unitSelect.innerHTML = '<option value="g">克 (g)</option>';
                 unitSelect.value = 'g';
                 unitSelect.disabled = true;
                 weightInput.value = '100';
             } else {
-                unitSelect.innerHTML = '<option value="g">份</option><option value="piece">个</option>';
+                unitSelect.innerHTML = '<option value="g">克 (g)</option><option value="piece">份</option>';
                 unitSelect.value = 'g';
                 unitSelect.disabled = false;
                 weightInput.value = '1';
