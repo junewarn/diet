@@ -101,6 +101,43 @@ function calculateFoodNutrition(name, quantity, unit) {
     };
 }
 
+let RECIPES = [];
+
+async function loadRecipes() {
+    try {
+        const response = await fetch('recipes_data.json');
+        RECIPES = await response.json();
+    } catch (error) {
+        console.error('Failed to load recipes:', error);
+        RECIPES = [];
+    }
+}
+
+function getRecipes() {
+    return RECIPES;
+}
+
+function getRecipeById(id) {
+    return RECIPES.find(r => r.id === id);
+}
+
+function searchRecipes(keyword) {
+    if (!keyword) return RECIPES;
+    return RECIPES.filter(r => r.name.includes(keyword));
+}
+
+function getRecipesByNutrition(calories, carbs, protein, fat) {
+    const tolerance = 0.3;
+    return RECIPES.filter(r => {
+        const calMatch = Math.abs(r.calories - calories) <= calories * tolerance;
+        const carbMatch = Math.abs(r.carbs - carbs) <= carbs * tolerance || carbs === 0;
+        const proteinMatch = Math.abs(r.protein - protein) <= protein * tolerance || protein === 0;
+        const fatMatch = Math.abs(r.fat - fat) <= fat * tolerance || fat === 0;
+        return calMatch && (carbMatch || proteinMatch);
+    });
+}
+
 if (typeof window !== 'undefined') {
     loadFoodDatabase();
+    loadRecipes();
 }

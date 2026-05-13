@@ -685,6 +685,7 @@
             <div class="tab" data-tab="diet">饮食记录</div>
             <div class="tab" data-tab="history">饮食历史</div>
             <div class="tab" data-tab="suggestion">饮食建议</div>
+            <div class="tab" data-tab="recipes">菜谱大全</div>
             <div class="tab" data-tab="foodmanager">食物管理</div>
         </div>
         
@@ -1000,6 +1001,13 @@
                             <div style="font-size: 16px; color: #721c24;" id="suggestFat">--</div>
                         </div>
                     </div>
+                    <div class="card" style="background: #e8f5e9;">
+                        <div style="font-size: 24px; text-align: center; margin-bottom: 10px;">🥬</div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 20px; font-weight: 600; color: #2e7d32;">蔬菜</div>
+                            <div style="font-size: 16px; color: #2e7d32;" id="suggestVegetables">--</div>
+                        </div>
+                    </div>
                     <div class="card" style="background: #e3f2fd;">
                         <div style="font-size: 24px; text-align: center; margin-bottom: 10px;">🔥</div>
                         <div style="text-align: center;">
@@ -1014,6 +1022,51 @@
                 
                 <div class="card-title" style="margin-top: 30px;">💡 智能建议</div>
                 <div class="recommendation-list" id="recommendationList"></div>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="recipes">
+            <div class="card">
+                <div class="card-title">📖 菜谱大全</div>
+                
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <input type="text" id="recipeSearch" placeholder="搜索菜谱..." onkeyup="searchRecipeList()" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ddd;">
+                </div>
+                
+                <div id="recipeList"></div>
+            </div>
+        </div>
+        
+        <div id="recipeModal" class="modal-overlay">
+            <div class="modal">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h3 id="recipeModalTitle">菜谱详情</h3>
+                    <span style="font-size: 24px; cursor: pointer; color: #6c757d;" onclick="closeRecipeModal()">&times;</span>
+                </div>
+                <div>
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="margin-bottom: 10px;">🍳 营养信息</h4>
+                        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                            <span><strong>热量:</strong> <span id="modalCalories">0</span> kcal</span>
+                            <span><strong>碳水:</strong> <span id="modalCarbs">0</span> g</span>
+                            <span><strong>蛋白质:</strong> <span id="modalProtein">0</span> g</span>
+                            <span><strong>脂肪:</strong> <span id="modalFat">0</span> g</span>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="margin-bottom: 10px;">🥬 所需材料</h4>
+                        <ul id="modalIngredients" style="list-style-type: none; padding: 0;">
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="margin-bottom: 10px;">👩🍳 制作方法</h4>
+                        <div id="modalInstructions" style="white-space: pre-line; line-height: 1.6;">
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 20px; text-align: right;">
+                    <button class="btn btn-secondary" onclick="closeRecipeModal()">关闭</button>
+                </div>
             </div>
         </div>
         
@@ -1851,6 +1904,67 @@
             }
         }
         
+        function renderRecipeList(recipes = null) {
+            const recipeList = document.getElementById('recipeList');
+            const data = recipes || getRecipes();
+            
+            if (data.length === 0) {
+                recipeList.innerHTML = '<div style="text-align: center; color: #6c757d; padding: 20px;">暂无菜谱</div>';
+                return;
+            }
+            
+            recipeList.innerHTML = data.map(recipe => `
+                <div class="recipe-card" onclick="showRecipeDetail(${recipe.id})" style="cursor: pointer; padding: 15px; border-radius: 10px; background: #fff; border: 1px solid #e9ecef; margin-bottom: 10px; transition: all 0.3s;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div style="font-weight: 600; font-size: 16px;">🍳 ${recipe.name}</div>
+                        <div style="font-size: 14px; color: #6c757d;">${recipe.calories} kcal</div>
+                    </div>
+                    <div style="display: flex; gap: 15px; margin-top: 8px; font-size: 13px; color: #858585;">
+                        <span>碳水: ${recipe.carbs}g</span>
+                        <span>蛋白质: ${recipe.protein}g</span>
+                        <span>脂肪: ${recipe.fat}g</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function searchRecipeList() {
+            const keyword = document.getElementById('recipeSearch').value;
+            const filteredRecipes = searchRecipes(keyword);
+            renderRecipeList(filteredRecipes);
+        }
+        
+        function showRecipeDetail(id) {
+            const recipe = getRecipeById(id);
+            if (!recipe) return;
+            
+            document.getElementById('recipeModalTitle').textContent = recipe.name;
+            document.getElementById('modalCalories').textContent = recipe.calories;
+            document.getElementById('modalCarbs').textContent = recipe.carbs;
+            document.getElementById('modalProtein').textContent = recipe.protein;
+            document.getElementById('modalFat').textContent = recipe.fat;
+            
+            document.getElementById('modalIngredients').innerHTML = recipe.ingredients.map(ing => `
+                <li style="padding: 5px 0; border-bottom: 1px dashed #eee;">🥬 ${ing}</li>
+            `).join('');
+            
+            document.getElementById('modalInstructions').textContent = recipe.instructions;
+            
+            document.getElementById('recipeModal').classList.add('active');
+        }
+        
+        function closeRecipeModal() {
+            document.getElementById('recipeModal').classList.remove('active');
+        }
+        
+        let suggestionCache = {
+            lastUpdate: 0,
+            dietHash: '',
+            hour: -1,
+            recommendations: '',
+            generalRecommendations: ''
+        };
+
         function updateSuggestion() {
             const personal = getPersonalInfo();
             const bmr = calculateBMR(personal);
@@ -1866,98 +1980,266 @@
             const proteinTarget = Math.round(personal.weight * 1.6);
             const fatTarget = Math.round(targetCalories * 0.25 / 9);
             const carbsTarget = Math.round((targetCalories - (proteinTarget * 4) - (fatTarget * 9)) / 4);
+            const vegetablesTarget = 500;
             
             document.getElementById('suggestCarbs').textContent = `${intake.carbs}/${carbsTarget} g`;
             document.getElementById('suggestProtein').textContent = `${intake.protein}/${proteinTarget} g`;
             document.getElementById('suggestFat').textContent = `${intake.fat}/${fatTarget} g`;
+            document.getElementById('suggestVegetables').textContent = `0/${vegetablesTarget} g`;
             document.getElementById('suggestCalories').textContent = `${intake.calories}/${targetCalories} kcal`;
             
-            generateMealRecommendations(intake, { carbs: carbsTarget, protein: proteinTarget, fat: fatTarget }, remaining, todayDiet);
             generateGeneralRecommendations(intake, { carbs: carbsTarget, protein: proteinTarget, fat: fatTarget });
+            
+            const currentHour = new Date().getHours();
+            const dietHash = JSON.stringify(todayDiet);
+            
+            if (suggestionCache.dietHash === dietHash && suggestionCache.hour === currentHour && 
+                Date.now() - suggestionCache.lastUpdate < 60000) {
+                document.getElementById('mealRecommendations').innerHTML = suggestionCache.recommendations;
+                return;
+            }
+            
+            document.getElementById('mealRecommendations').innerHTML = '<div style="text-align: center; color: #6c757d; padding: 20px;">⏳ 正在计算推荐菜谱...</div>';
+            
+            setTimeout(() => {
+                const result = generateMealRecommendations(intake, { carbs: carbsTarget, protein: proteinTarget, fat: fatTarget }, remaining, todayDiet);
+                suggestionCache = {
+                    lastUpdate: Date.now(),
+                    dietHash: dietHash,
+                    hour: currentHour,
+                    recommendations: result,
+                    generalRecommendations: ''
+                };
+                document.getElementById('mealRecommendations').innerHTML = result;
+            }, 50);
         }
         
         function generateMealRecommendations(current, target, remainingCalories, todayDiet) {
-            const remainingCarbs = target.carbs - current.carbs;
-            const remainingProtein = target.protein - current.protein;
-            const remainingFat = target.fat - current.fat;
+            const remainingCarbs = Math.max(0, target.carbs - current.carbs);
+            const remainingProtein = Math.max(0, target.protein - current.protein);
+            const remainingFat = Math.max(0, target.fat - current.fat);
             
             const now = new Date();
             const hour = now.getHours();
             
-            let allMeals = [];
-            if (hour < 10) {
-                allMeals = ['breakfast', 'lunch', 'dinner', 'snack'];
-            } else if (hour < 14) {
-                allMeals = ['lunch', 'dinner', 'snack'];
-            } else if (hour < 18) {
-                allMeals = ['dinner', 'snack'];
-            } else {
-                allMeals = ['snack'];
-            }
+            const personal = getPersonalInfo();
+            const bmr = calculateBMR(personal);
             
             const mealNames = { 'breakfast': '早餐', 'lunch': '午餐', 'dinner': '晚餐', 'snack': '加餐' };
             const mealEmojis = { 'breakfast': '🌅', 'lunch': '☀️', 'dinner': '🌙', 'snack': '🍪' };
+            const mealRatios = { 'breakfast': 0.3, 'lunch': 0.4, 'dinner': 0.3 };
             
-            const remainingMeals = allMeals.filter(meal => {
+            let mainMeals = [];
+            if (hour < 10) {
+                mainMeals = ['breakfast', 'lunch', 'dinner'];
+            } else if (hour < 14) {
+                mainMeals = ['lunch', 'dinner'];
+            } else if (hour < 20) {
+                mainMeals = ['dinner'];
+            } else {
+                mainMeals = [];
+            }
+            
+            const remainingMainMeals = mainMeals.filter(meal => {
                 const foods = todayDiet[meal] || [];
                 return foods.length === 0;
             });
             
-            if (remainingMeals.length === 0) {
-                document.getElementById('mealRecommendations').innerHTML = '<div style="text-align: center; color: #6c757d; padding: 20px;">🎉 今日所有餐次已完成！</div>';
-                return;
+            let mealsToRecommend = [...remainingMainMeals];
+            
+            if (hour >= 20 && current.calories < bmr) {
+                mealsToRecommend.push('snack');
             }
             
-            const caloriesPerMeal = Math.round(remainingCalories / Math.max(remainingMeals.length, 1));
-            const carbsPerMeal = Math.round(remainingCarbs / Math.max(remainingMeals.length, 1));
-            const proteinPerMeal = Math.round(remainingProtein / Math.max(remainingMeals.length, 1));
-            const fatPerMeal = Math.round(remainingFat / Math.max(remainingMeals.length, 1));
+            if (mealsToRecommend.length === 0) {
+                return '<div style="text-align: center; color: #6c757d; padding: 20px;">🎉 今日所有餐次已完成！</div>';
+            }
             
+            let mealTargets = [];
             let html = '';
             
-            remainingMeals.forEach((meal, index) => {
-                const portion = (index + 1) / remainingMeals.length;
-                const mealCalories = Math.round(caloriesPerMeal * (0.8 + portion * 0.4));
-                const mealCarbs = Math.round(carbsPerMeal);
-                const mealProtein = Math.round(proteinPerMeal);
-                const mealFat = Math.round(fatPerMeal);
+            if (remainingMainMeals.length > 0) {
+                const totalRatio = remainingMainMeals.reduce((sum, meal) => sum + mealRatios[meal], 0);
                 
-                let foodSuggestions = getFoodSuggestions(mealCalories, mealCarbs, mealProtein, mealFat);
+                remainingMainMeals.forEach((meal) => {
+                    const ratio = mealRatios[meal] / totalRatio;
+                    const mealCalories = Math.max(0, Math.round(remainingCalories * ratio));
+                    const mealCarbs = Math.max(0, Math.round(remainingCarbs * ratio));
+                    const mealProtein = Math.max(0, Math.round(remainingProtein * ratio));
+                    const mealFat = Math.max(0, Math.round(remainingFat * ratio));
+                    
+                    mealTargets.push({ meal, calories: mealCalories, carbs: mealCarbs, protein: mealProtein, fat: mealFat });
+                    
+                    let foodSuggestions = getFoodSuggestions(meal, mealCalories, mealCarbs, mealProtein, mealFat);
+                    
+                    html += `
+                        <div class="meal-suggestion" data-meal="${meal}">
+                            <div class="meal-suggestion-title">${mealEmojis[meal]} ${mealNames[meal]}</div>
+                            <div class="meal-suggestion-content">
+                                <strong>目标：</strong>${mealCalories} kcal | 碳水 ${mealCarbs}g | 蛋白质 ${mealProtein}g | 脂肪 ${mealFat}g<br>
+                                <strong>推荐：</strong><span class="recipe-suggestions" data-calories="${mealCalories}" data-carbs="${mealCarbs}" data-protein="${mealProtein}" data-fat="${mealFat}">${foodSuggestions}</span>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+            
+            if (mealsToRecommend.includes('snack')) {
+                const snackCalories = Math.max(0, Math.min(bmr - current.calories, remainingCalories));
+                const snackCarbs = Math.max(0, Math.round(snackCalories * 0.5 / 4));
+                const snackProtein = Math.max(0, Math.round(snackCalories * 0.3 / 4));
+                const snackFat = Math.max(0, Math.round(snackCalories * 0.2 / 9));
+                
+                mealTargets.push({ meal: 'snack', calories: snackCalories, carbs: snackCarbs, protein: snackProtein, fat: snackFat });
+                
+                let foodSuggestions = getFoodSuggestions('snack', snackCalories, snackCarbs, snackProtein, snackFat);
                 
                 html += `
-                    <div class="meal-suggestion">
-                        <div class="meal-suggestion-title">${mealEmojis[meal]} ${mealNames[meal]}</div>
+                    <div class="meal-suggestion" data-meal="snack">
+                        <div class="meal-suggestion-title">${mealEmojis['snack']} ${mealNames['snack']}</div>
                         <div class="meal-suggestion-content">
-                            <strong>目标：</strong>${mealCalories} kcal | 碳水 ${mealCarbs}g | 蛋白质 ${mealProtein}g | 脂肪 ${mealFat}g<br>
-                            <strong>推荐：</strong>${foodSuggestions}
+                            <strong>目标：</strong>${snackCalories} kcal | 碳水 ${snackCarbs}g | 蛋白质 ${snackProtein}g | 脂肪 ${snackFat}g<br>
+                            <strong>推荐：</strong><span class="recipe-suggestions" data-calories="${snackCalories}" data-carbs="${snackCarbs}" data-protein="${snackProtein}" data-fat="${snackFat}">${foodSuggestions}</span>
                         </div>
                     </div>
                 `;
-            });
+            }
             
-            document.getElementById('mealRecommendations').innerHTML = html;
+            setTimeout(() => {
+                mealTargets.forEach(target => {
+                    if (target.calories > 100) {
+                        findRecipeCombinationsAsync(target.calories, target.carbs, target.protein, target.fat, target.meal);
+                    }
+                });
+            }, 100);
+            
+            return html;
         }
         
-        function getFoodSuggestions(calories, carbs, protein, fat) {
+        function findRecipeCombinationsAsync(calories, carbs, protein, fat, meal) {
+            const allRecipes = getRecipes();
+            
+            findRecipeCombinations(calories, carbs, protein, fat, allRecipes, (combinations) => {
+                if (combinations.length > 0) {
+                    const bestCombo = combinations[0];
+                    const comboHtml = bestCombo.recipes.map(r => 
+                        `<span style="color: #28a745; text-decoration: underline; cursor: pointer;" onclick="showRecipeDetail(${r.id})">🍳 ${r.name}</span>`
+                    ).join(' + ');
+                    
+                    const elements = document.querySelectorAll(`.meal-suggestion[data-meal="${meal}"] .recipe-suggestions`);
+                    if (elements.length > 0) {
+                        elements[0].innerHTML = `<span style="color: #6c757d; font-size: 12px;">[最优组合] </span>${comboHtml}`;
+                    }
+                }
+            });
+        }
+        
+        function getFoodSuggestions(meal, calories, carbs, protein, fat) {
+            if (calories <= 0) {
+                return '已达今日摄入目标';
+            }
+            
+            const recipes = getRecipesByNutrition(calories, carbs, protein, fat);
+            if (recipes.length > 0) {
+                return recipes.slice(0, 3).map(r => 
+                    `<span style="color: #007bff; text-decoration: underline; cursor: pointer;" onclick="showRecipeDetail(${r.id})">🍳 ${r.name}</span>`
+                ).join(' 或 ');
+            }
+            
             const suggestions = [];
             
             if (calories > 200) {
                 if (carbs > 20) {
-                    suggestions.push(`米饭约${Math.round(carbs / 2.5)}g`);
+                    suggestions.push(`米饭${Math.round(carbs / 2.5)}g`);
                 }
                 if (protein > 15) {
-                    suggestions.push(`鸡胸肉约${Math.round(protein / 0.3)}g`);
+                    suggestions.push(`鸡胸肉${Math.round(protein / 0.3)}g`);
                 }
+                if (fat > 3) {
+                    suggestions.push(`油${Math.round(fat)}g`);
+                }
+                suggestions.push('蔬菜200g');
             } else if (calories > 100) {
-                suggestions.push(`鸡蛋${Math.round(protein / 6)}个`);
+                if (protein > 10) {
+                    suggestions.push(`鸡蛋${Math.round(protein / 6)}个`);
+                }
                 if (carbs > 10) {
-                    suggestions.push(`红薯约${Math.round(carbs / 2)}g`);
+                    suggestions.push(`红薯${Math.round(carbs / 2)}g`);
+                }
+                if (carbs > 0 && meal !== 'snack') {
+                    suggestions.push('蔬菜100g');
                 }
             } else {
                 suggestions.push('一小把坚果或水果');
             }
             
             return suggestions.join(' + ');
+        }
+        
+        function findRecipeCombinations(targetCalories, targetCarbs, targetProtein, targetFat, recipes, callback) {
+            const combinations = [];
+            const tolerance = 0.3;
+            const maxDishes = 3;
+            const maxRecipesToCheck = 50;
+            
+            const sortedRecipes = [...recipes]
+                .filter(r => r.calories > 0)
+                .sort((a, b) => Math.abs(a.calories - targetCalories / maxDishes) - Math.abs(b.calories - targetCalories / maxDishes))
+                .slice(0, maxRecipesToCheck);
+            
+            function generateCombos(startIndex, currentCombo) {
+                if (currentCombo.length > 0) {
+                    const totalCalories = currentCombo.reduce((sum, r) => sum + r.calories, 0);
+                    const totalCarbs = currentCombo.reduce((sum, r) => sum + r.carbs, 0);
+                    const totalProtein = currentCombo.reduce((sum, r) => sum + r.protein, 0);
+                    const totalFat = currentCombo.reduce((sum, r) => sum + r.fat, 0);
+                    
+                    if (totalCalories <= targetCalories * 1.3) {
+                        const calDiff = Math.abs(totalCalories - targetCalories) / Math.max(targetCalories, 1);
+                        const carbDiff = Math.abs(totalCarbs - targetCarbs) / Math.max(targetCarbs, 1);
+                        const proteinDiff = Math.abs(totalProtein - targetProtein) / Math.max(targetProtein, 1);
+                        const fatDiff = Math.abs(totalFat - targetFat) / Math.max(targetFat, 1);
+                        
+                        if (calDiff <= tolerance && 
+                            (carbDiff <= tolerance || proteinDiff <= tolerance)) {
+                            combinations.push({
+                                recipes: [...currentCombo],
+                                score: calDiff + carbDiff + proteinDiff + fatDiff,
+                                count: currentCombo.length,
+                                totalCalories: totalCalories
+                            });
+                        }
+                    }
+                }
+                
+                if (currentCombo.length >= maxDishes) {
+                    return;
+                }
+                
+                for (let i = startIndex; i < sortedRecipes.length; i++) {
+                    currentCombo.push(sortedRecipes[i]);
+                    generateCombos(i + 1, currentCombo);
+                    currentCombo.pop();
+                }
+            }
+            
+            generateCombos(0, []);
+            
+            const sorted = combinations.sort((a, b) => {
+                if (Math.abs(a.totalCalories - targetCalories) !== Math.abs(b.totalCalories - targetCalories)) {
+                    return Math.abs(a.totalCalories - targetCalories) - Math.abs(b.totalCalories - targetCalories);
+                }
+                if (a.score !== b.score) {
+                    return a.score - b.score;
+                }
+                return a.count - b.count;
+            });
+            
+            if (callback) {
+                setTimeout(() => callback(sorted.slice(0, 5)), 0);
+            }
+            
+            return sorted.slice(0, 5);
         }
         
         function generateGeneralRecommendations(current, target) {
@@ -2104,6 +2386,8 @@
                     loadHistory();
                 } else if (tabId === 'suggestion') {
                     updateSuggestion();
+                } else if (tabId === 'recipes') {
+                    renderRecipeList();
                 } else if (tabId === 'foodmanager') {
                     renderFoodManagerList();
                 }
