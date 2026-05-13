@@ -489,12 +489,20 @@
             border-color: #28a745;
         }
         .day-number {
-            font-size: 14px;
+            font-size: 18px;
             font-weight: 600;
         }
         .day-calories {
-            font-size: 9px;
-            color: #6c757d;
+            font-size: 11px;
+            color: #495057;
+            margin-top: 3px;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .day-metabolism {
+            font-size: 10px;
             margin-top: 2px;
             max-width: 100%;
             overflow: hidden;
@@ -502,8 +510,8 @@
             white-space: nowrap;
         }
         .day-gap {
-            font-size: 9px;
-            margin-top: 1px;
+            font-size: 10px;
+            margin-top: 2px;
             max-width: 100%;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -910,6 +918,10 @@
                             相当于约 <span id="monthlyWeightLoss">0</span> kg 脂肪
                         </span>
                     </div>
+                    <div id="monthlyWarning" style="display: none;" class="warning-box">
+                        <strong style="color: #dc3545;">⚠️ 警告：</strong>
+                        <span>本月有超过30%的天数未吃够基础代谢，长期摄入不足可能导致肌肉流失、代谢下降等问题，请保证基本营养需求。</span>
+                    </div>
                 </div>
                 
                 <div id="yearlyStats" style="display: none;">
@@ -919,6 +931,10 @@
                         <span style="font-size: 12px; display: block; margin-top: 5px;">
                             相当于约 <span id="yearlyWeightLoss">0</span> kg 脂肪
                         </span>
+                    </div>
+                    <div id="yearlyWarning" style="display: none;" class="warning-box">
+                        <strong style="color: #dc3545;">⚠️ 警告：</strong>
+                        <span>本年有超过30%的天数未吃够基础代谢，长期摄入不足可能导致肌肉流失、代谢下降等问题，请保证基本营养需求。</span>
                     </div>
                 </div>
                 
@@ -1692,7 +1708,8 @@
                     const dayDiet = data.diet[dateStr];
                     const hasData = dayDiet && Object.values(dayDiet).some(meal => meal.length > 0);
                     const dayCalories = hasData ? calculateDailyIntake(dayDiet).calories : 0;
-                    const calorieGap = hasData ? Math.abs(targetCalories - dayCalories) : 0;
+                    const metabolismStatus = hasData ? (dayCalories >= bmr ? '已满足' : `<span style="color: red;">${dayCalories - bmr}kcal </span>`) : '';
+                    const calorieGap = hasData ? tdee - dayCalories : 0;
                     const isToday = dateStr === getTodayString();
                     const isSelected = dateStr === selectedHistoryDate;
                     
@@ -1701,7 +1718,8 @@
                              data-date="${dateStr}" onclick="selectHistoryDate('${dateStr}')">
                             <div class="day-number">${date.getDate()}</div>
                             <div class="day-calories">${dayCalories > 0 ? '摄入：' + dayCalories + 'kcal' : ''}</div>
-                            <div class="day-gap">${hasData ? '<span style="color: red;">缺口：' + calorieGap + 'kcal</span>' : ''}</div>
+                            <div class="day-metabolism">${metabolismStatus ? '代谢：' + metabolismStatus : ''}</div>
+                            <div class="day-gap">${hasData ? '缺口：' + calorieGap + 'kcal' : ''}</div>
                         </div>
                     `;
                 }).join('');
@@ -1763,10 +1781,10 @@
             const personal = getPersonalInfo();
             const bmr = calculateBMR(personal);
             const tdee = calculateTDEE(bmr, personal.exercise);
-            const targetCalories = calculateTargetCalories(tdee, personal.weightLossGoal);
             
-            let totalCalories = 0;
+            let totalDeficit = 0;
             let daysWithData = 0;
+            let daysBelowBMR = 0;
             
             if (currentHistoryView === 'month') {
                 const firstDay = new Date(currentHistoryYear, currentHistoryMonth, 1);
@@ -1775,16 +1793,25 @@
                 for (let d = new Date(firstDay); d <= lastDay; d.setDate(d.getDate() + 1)) {
                     const dateStr = d.toISOString().split('T')[0];
                     if (data.diet[dateStr]) {
-                        totalCalories += calculateDailyIntake(data.diet[dateStr]).calories;
+                        const dayCalories = calculateDailyIntake(data.diet[dateStr]).calories;
+                        totalDeficit += tdee - dayCalories;
                         daysWithData++;
+                        if (dayCalories < bmr) {
+                            daysBelowBMR++;
+                        }
                     }
                 }
                 
-                const expectedIntake = targetCalories * daysWithData;
-                const deficit = expectedIntake - totalCalories;
+                const belowBMRPercentage = daysWithData > 0 ? (daysBelowBMR / daysWithData) * 100 : 0;
                 
-                document.getElementById('monthlyDeficit').textContent = deficit;
-                document.getElementById('monthlyWeightLoss').textContent = (deficit / 7700).toFixed(2);
+                document.getElementById('monthlyDeficit').textContent = Math.round(totalDeficit);
+                document.getElementById('monthlyWeightLoss').textContent = (totalDeficit / 7700).toFixed(2);
+                
+                if (belowBMRPercentage > 30) {
+                    document.getElementById('monthlyWarning').style.display = 'block';
+                } else {
+                    document.getElementById('monthlyWarning').style.display = 'none';
+                }
             } else {
                 for (let month = 0; month < 12; month++) {
                     const monthStart = new Date(currentHistoryYear, month, 1);
@@ -1793,17 +1820,26 @@
                     for (let d = new Date(monthStart); d <= monthEnd; d.setDate(d.getDate() + 1)) {
                         const dateStr = d.toISOString().split('T')[0];
                         if (data.diet[dateStr]) {
-                            totalCalories += calculateDailyIntake(data.diet[dateStr]).calories;
+                            const dayCalories = calculateDailyIntake(data.diet[dateStr]).calories;
+                            totalDeficit += tdee - dayCalories;
                             daysWithData++;
+                            if (dayCalories < bmr) {
+                                daysBelowBMR++;
+                            }
                         }
                     }
                 }
                 
-                const expectedIntake = targetCalories * daysWithData;
-                const deficit = expectedIntake - totalCalories;
+                const belowBMRPercentage = daysWithData > 0 ? (daysBelowBMR / daysWithData) * 100 : 0;
                 
-                document.getElementById('yearlyDeficit').textContent = deficit;
-                document.getElementById('yearlyWeightLoss').textContent = (deficit / 7700).toFixed(2);
+                document.getElementById('yearlyDeficit').textContent = Math.round(totalDeficit);
+                document.getElementById('yearlyWeightLoss').textContent = (totalDeficit / 7700).toFixed(2);
+                
+                if (belowBMRPercentage > 30) {
+                    document.getElementById('yearlyWarning').style.display = 'block';
+                } else {
+                    document.getElementById('yearlyWarning').style.display = 'none';
+                }
             }
         }
         
