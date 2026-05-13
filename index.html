@@ -1999,19 +1999,15 @@
                 return;
             }
             
-            document.getElementById('mealRecommendations').innerHTML = '<div style="text-align: center; color: #6c757d; padding: 20px;">⏳ 正在计算推荐菜谱...</div>';
-            
-            setTimeout(() => {
-                const result = generateMealRecommendations(intake, { carbs: carbsTarget, protein: proteinTarget, fat: fatTarget }, remaining, todayDiet);
-                suggestionCache = {
-                    lastUpdate: Date.now(),
-                    dietHash: dietHash,
-                    hour: currentHour,
-                    recommendations: result,
-                    generalRecommendations: ''
-                };
-                document.getElementById('mealRecommendations').innerHTML = result;
-            }, 50);
+            const result = generateMealRecommendations(intake, { carbs: carbsTarget, protein: proteinTarget, fat: fatTarget }, remaining, todayDiet);
+            suggestionCache = {
+                lastUpdate: Date.now(),
+                dietHash: dietHash,
+                hour: currentHour,
+                recommendations: result,
+                generalRecommendations: ''
+            };
+            document.getElementById('mealRecommendations').innerHTML = result;
         }
         
         function generateMealRecommendations(current, target, remainingCalories, todayDiet) {
@@ -2128,7 +2124,8 @@
                     
                     const elements = document.querySelectorAll(`.meal-suggestion[data-meal="${meal}"] .recipe-suggestions`);
                     if (elements.length > 0) {
-                        elements[0].innerHTML = `<span style="color: #6c757d; font-size: 12px;">[最优组合] </span>${comboHtml}`;
+                        const existingHtml = elements[0].innerHTML;
+                        elements[0].innerHTML = `${existingHtml}<br><span style="color: #28a745; font-size: 12px;">[最优组合] </span>${comboHtml}`;
                     }
                 }
             });
