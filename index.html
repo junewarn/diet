@@ -1443,7 +1443,6 @@
         function loadDietByDate() {
             const date = document.getElementById('dietDate').value || getTodayString();
             const diet = getDietByDate(date);
-            console.log(diet);
             
             renderFoodList('breakfast', diet.breakfast);
             renderFoodList('lunch', diet.lunch);
@@ -1454,7 +1453,6 @@
             
             
             updateMealSuggestions(diet);
-            console.log("饮食建议更新成功");
             
             scrollToCurrentMeal();
         }
