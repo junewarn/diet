@@ -2637,7 +2637,9 @@
             }
             
             try {
-                const response = await fetch('food_data.json');
+                localStorage.removeItem('food_database');
+                
+                const response = await fetch('food_data.json?' + Date.now(), { cache: 'no-cache' });
                 const data = await response.json();
                 
                 let cloudFoodDatabase;

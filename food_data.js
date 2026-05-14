@@ -15,7 +15,7 @@ async function loadFoodDatabase() {
     }
     
     try {
-        const response = await fetch('food_data.json');
+        const response = await fetch('food_data.json?' + Date.now(), { cache: 'no-cache' });
         const data = await response.json();
         if (data.foods) {
             FOOD_CATEGORIES = data.foods;
