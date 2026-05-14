@@ -1,4 +1,7 @@
 let FOOD_DATABASE = {};
+let FOOD_CATEGORIES = {};
+
+const VEGETABLE_CATEGORIES = ['蔬菜类'];
 
 async function loadFoodDatabase() {
     const savedData = localStorage.getItem('food_database');
@@ -15,6 +18,7 @@ async function loadFoodDatabase() {
         const response = await fetch('food_data.json');
         const data = await response.json();
         if (data.foods) {
+            FOOD_CATEGORIES = data.foods;
             FOOD_DATABASE = flattenFoodData(data.foods);
         } else {
             FOOD_DATABASE = data;
@@ -30,10 +34,20 @@ function flattenFoodData(foodsByCategory) {
     for (const category in foodsByCategory) {
         const foods = foodsByCategory[category];
         for (const name in foods) {
-            result[name] = foods[name];
+            result[name] = { ...foods[name], category };
         }
     }
     return result;
+}
+
+function isVegetable(foodName) {
+    const foodInfo = FOOD_DATABASE[foodName];
+    return foodInfo && VEGETABLE_CATEGORIES.includes(foodInfo.category);
+}
+
+function getFoodCategory(foodName) {
+    const foodInfo = FOOD_DATABASE[foodName];
+    return foodInfo ? foodInfo.category : null;
 }
 
 function getDefaultFoodDatabase() {
